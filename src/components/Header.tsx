@@ -40,9 +40,13 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={navLinkClass}
+              className={item.label === "Reserva" ? "bg-brown p-[1px] -ml-px" : navLinkClass}
             >
-              {item.label}
+              {item.label === "Reserva" ? (
+                <span className="block bg-cream px-5 py-2.5 font-grillmaster text-[16.91px] text-brown uppercase rounded-[13.35px]">
+                  {item.label}
+                </span>
+              ) : item.label}
             </Link>
           ))}
         </nav>

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: "Balotro";
   src: url("/fonts/Balotro.ttf") format("truetype");
