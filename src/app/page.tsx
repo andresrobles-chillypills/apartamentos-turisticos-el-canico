@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ApartmentsSection from "@/components/ApartmentsSection";
+import LocationSection from "@/components/LocationSection";
 
 export default function Home() {
   return (
@@ -142,6 +143,9 @@ export default function Home() {
 
       {/* Apartments Section */}
       <ApartmentsSection />
+
+      {/* Location Section */}
+      <LocationSection />
     </div>
   );
 }
