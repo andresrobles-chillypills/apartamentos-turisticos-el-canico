@@ -1,244 +1,124 @@
-const apartamentos = [
-  {
-    id: 1,
-    nombre: "Apartamento 1 – Planta Baja",
-    descripcion:
-      "Apartamento en planta baja del edificio, compuesto de salón cocina, 2 dormitorios, baño completo y patio interior. Dormitorio 1: Cama de 135 con mesillas y armario de 2 puertas y cajones, salida patio interior, aire acondicionado, ventilador de techo. Dormitorio 2: Cama de 150 con mesillas, armario empotrado muy amplio, aire acondicionado, ventilador de techo. Salón Cocina: Mesa para 4 comensales, sofá, sillón, TV, aire acondicionado, ventilador de techo, cocina con vitrocerámica, microondas, horno, lavadora, frigorífico, tostador, cafetera de cápsulas y fregadero. Baño: Completo: plato de ducha, mueble de lavabo, bidé y WC.",
-    idealPara: ["Parejas", "Familias con niños"],
-    equipamiento: [
-      "Aire acondicionado",
-      "Ventilador de techo",
-      "TV",
-      "Cocina completa",
-      "Lavadora",
-      "Wi-Fi",
-      "Patio interior",
-      "Cafetera de cápsulas",
-    ],
-    capacidad: "4 personas",
-    dormitorios: 2,
-  },
-  {
-    id: 2,
-    nombre: "Apartamento 2 – Primera Planta",
-    descripcion:
-      "Apartamento en planta primera del edificio, compuesto de salón cocina, 2 dormitorios, baño completo. Dormitorio 1: Cama de 135 con mesilla y armario de 2 puertas y cajones, aire acondicionado, ventilador de techo. Dormitorio 2: Cama de 150 con mesillas, armario empotrado muy amplio, aire acondicionado, ventilador de techo. Salón Cocina: Mesa para 4 comensales, barra con 2 taburetes, sofá, sillón, TV, aire acondicionado, ventilador de techo, cocina con vitrocerámica, microondas, horno, lavadora, frigorífico, tostador, cafetera de cápsulas y fregadero. Baño Completo: plato de ducha, mueble de lavabo, bidé y WC.",
-    idealPara: ["Parejas", "Familias"],
-    equipamiento: [
-      "Aire acondicionado",
-      "Ventilador de techo",
-      "TV",
-      "Cocina completa",
-      "Lavadora",
-      "Wi-Fi",
-      "Barra con taburetes",
-      "Cafetera de cápsulas",
-    ],
-    capacidad: "4 personas",
-    dormitorios: 2,
-  },
-  {
-    id: 3,
-    nombre: "Apartamento 3 – Segunda Planta",
-    descripcion:
-      "Apartamento en planta segunda del edificio, compuesto de salón cocina, 2 dormitorios, baño completo. Dormitorio 1: Cama de 135 con mesilla y armario de 2 puertas y cajones, aire acondicionado, ventilador de techo. Dormitorio 2: Cama de 150 con mesillas, armario empotrado muy amplio, aire acondicionado, ventilador de techo. Salón Cocina: Mesa para 4 comensales, barra con 2 taburetes, sofá, sillón, TV, aire acondicionado, ventilador de techo, cocina con vitrocerámica, microondas, horno, lavadora, frigorífico, tostador, cafetera de cápsulas y fregadero. Baño Completo: plato de ducha, mueble de lavabo, bidé y WC.",
-    idealPara: ["Parejas", "Familias"],
-    equipamiento: [
-      "Aire acondicionado",
-      "Ventilador de techo",
-      "TV",
-      "Cocina completa",
-      "Lavadora",
-      "Wi-Fi",
-      "Barra con taburetes",
-      "Cafetera de cápsulas",
-    ],
-    capacidad: "4 personas",
-    dormitorios: 2,
-  },
-  {
-    id: 4,
-    nombre: "Apartamento 4 – Tercera Planta (Ático)",
-    descripcion:
-      "Apartamento en planta tercera del edificio, compuesto de salón cocina, 1 dormitorio, baño y terraza con vistas al casco histórico de Moratalla y al castillo. Dormitorio 1: Cama de 135 con mesilla y armario de 2 puertas y cajones, ventilador de techo. Salón Cocina: Mesa para 2 comensales, sofá, TV, aire acondicionado, ventilador de techo, cocina con vitrocerámica, microondas, horno, lavadora, frigorífico, tostador, cafetera de cápsulas y fregadero. Baño: Plato de ducha, mueble de lavabo y WC.",
-    idealPara: ["Parejas", "Escapadas románticas"],
-    equipamiento: [
-      "Aire acondicionado",
-      "Ventilador de techo",
-      "TV",
-      "Cocina completa",
-      "Lavadora",
-      "Wi-Fi",
-      "Terraza con vistas al castillo",
-      "Cafetera de cápsulas",
-    ],
-    capacidad: "2 personas",
-    dormitorios: 1,
-  },
-];
-
 export default function ApartamentosPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[500px] lg:h-[700px] overflow-hidden">
-        <div className="absolute inset-0 bg-brown/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brown/90 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col justify-end max-w-[1920px] mx-auto px-6 lg:px-20 pb-16">
-          <p className="font-balotro text-[13px] text-cream/60 uppercase tracking-wider mb-4">
-            apartamentos turísticos en moratalla
+      <section className="bg-cream pt-16 lg:pt-24 pb-0">
+        {/* Text content */}
+        <div className="flex flex-col items-center text-center px-6 lg:px-12">
+          <p className="font-balotro text-[12.91px] text-brown uppercase tracking-wider mb-4">
+            Apartamentos turísticos en Moratalla
           </p>
-          <h1 className="font-averia font-bold text-cream text-[42px] lg:text-[49px] leading-tight max-w-[974px]">
+          <h1 className="font-averia font-bold text-[49.22px] leading-[50px] text-brown uppercase mb-6 max-w-[950px]">
             Cuatro espacios únicos en el casco antiguo, junto al Castillo.
           </h1>
-          <p className="font-grillmaster text-[17px] text-cream/70 max-w-[492px] mt-6">
-            Descubre nuestros apartamentos totalmente equipados en la zona
-            histórica de El Cañico, ideales para escapadas rurales en pareja,
-            familia o con amigos.
+          <p className="font-grillmaster text-[16.91px] text-brown mb-4 max-w-[492px]">
+            Descubre nuestros apartamentos totalmente equipados en la zona histórica de El Cañico, ideales para escapadas rurales en pareja, familia o con amigos.
           </p>
         </div>
+
+        {/* Hero image */}
+        <div className="mt-12 w-full h-[750px] bg-brown/10" />
       </section>
 
-      {/* Apartments list */}
-      {apartamentos.map((apt, index) => (
-        <section
-          key={apt.id}
-          className={`py-20 lg:py-32 ${
-            index % 2 === 0 ? "bg-cream" : "bg-brown"
-          }`}
-        >
-          <div className="max-w-[1920px] mx-auto px-6 lg:px-20">
-            <div
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start ${
-                index % 2 !== 0 ? "text-cream" : "text-brown"
-              }`}
-            >
-              {/* Images */}
-              <div
-                className={`grid grid-cols-2 gap-4 ${
-                  index % 2 !== 0 ? "lg:order-2" : ""
-                }`}
-              >
-                <div className="space-y-4">
-                  <div
-                    className={`w-full aspect-[443/415] rounded-sm ${
-                      index % 2 === 0 ? "bg-brown/10" : "bg-cream/10"
-                    }`}
-                  />
-                  <div
-                    className={`w-full aspect-[444/570] rounded-sm ${
-                      index % 2 === 0 ? "bg-brown/10" : "bg-cream/10"
-                    }`}
-                  />
-                </div>
-                <div className="space-y-4 pt-8">
-                  <div
-                    className={`w-full aspect-[445/570] rounded-sm ${
-                      index % 2 === 0 ? "bg-brown/10" : "bg-cream/10"
-                    }`}
-                  />
-                  <div
-                    className={`w-full aspect-[443/415] rounded-sm ${
-                      index % 2 === 0 ? "bg-brown/10" : "bg-cream/10"
-                    }`}
-                  />
-                </div>
-              </div>
+      {/* LA FUENTE - Apartment Section */}
+      <section className="bg-cream px-6 lg:px-12 pt-20 lg:pt-28 pb-80 lg:pb-[500px]">
+        {/* Two columns */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          {/* Left column */}
+          <div className="w-full lg:w-1/2">
+            {/* Title SVG */}
+            <img src="/icons/Group1.svg" alt="La Fuente" className="w-auto mb-20" />
+            {/* Description */}
+            <div className="max-w-[550px]">
+              <p className="font-grillmaster text-[16.91px] text-brown mb-6">
+                Apartamento en planta baja del edificio, compuesto de salón cocina, 2 dormitorios, baño completo y patio interior.
+              </p>
+              <p className="font-grillmaster text-[16.91px] text-brown mb-3">
+                <strong>Dormitorio 1:</strong> Cama de 135 con mesillas y armario de 2 puertas y cajones, salida patio interior, aire acondicionado, ventilador de techo.
+              </p>
+              <p className="font-grillmaster text-[16.91px] text-brown mb-3">
+                <strong>Dormitorio 2:</strong> Cama de 150 con mesillas, armario empotrado muy amplio, aire acondicionado, ventilador de techo.
+              </p>
+              <p className="font-grillmaster text-[16.91px] text-brown mb-3">
+                <strong>Salón Cocina:</strong> Mesa para 4 comensales, sofá, sillón, TV, aire acondicionado, ventilador de techo, cocina con vitrocerámica, microondas, horno, lavadora, frigorífico, tostador, cafetera de cápsulas y fregadero.
+              </p>
+              <p className="font-grillmaster text-[16.91px] text-brown mb-8">
+                <strong>Baño:</strong> Completo: plato de ducha, mueble de lavabo, bidé y WC.
+              </p>
+            </div>
 
-              {/* Info */}
-              <div>
-                <h2 className="font-averia font-bold text-[32px] lg:text-[40px] leading-tight mb-6">
-                  {apt.nombre}
-                </h2>
-
-                <div className="flex flex-wrap gap-4 mb-6">
-                  <span
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-sm text-[13px] font-balotro uppercase tracking-wider ${
-                      index % 2 === 0
-                        ? "bg-brown/10 text-brown"
-                        : "bg-cream/10 text-cream"
-                    }`}
-                  >
-                    {apt.dormitorios} dormitorio{apt.dormitorios > 1 ? "s" : ""}
-                  </span>
-                  <span
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-sm text-[13px] font-balotro uppercase tracking-wider ${
-                      index % 2 === 0
-                        ? "bg-brown/10 text-brown"
-                        : "bg-cream/10 text-cream"
-                    }`}
-                  >
-                    {apt.capacidad}
-                  </span>
-                </div>
-
-                <p className="font-grillmaster text-[17px] leading-relaxed opacity-80 mb-8">
-                  {apt.descripcion}
-                </p>
-
-                {/* Ideal para */}
-                <div className="mb-6">
-                  <h3 className="font-grillmaster text-[17px] font-bold mb-3">
-                    Ideal para:
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {apt.idealPara.map((item) => (
+            {/* Equipment */}
+            <p className="font-grillmaster text-[16.91px] text-brown mb-6 mt-15">Equipamiento incluido:</p>
+            <div className="flex flex-col gap-2">
+              {[
+                ["WIFI", "Termo eléctrico independiente", "Ropa para camas"],
+                ["Menaje de cocina", "Toallas para baño", "Zona de almacenaje en armario de pasillo"],
+                ["Posibilidad parque cuna", "2 sillas supletorias en armario pasillo"],
+              ].map((row, rowIdx) => (
+                <div key={rowIdx} className="flex gap-2">
+                  {row.map((item, colIdx) => {
+                    const i = rowIdx * 3 + colIdx;
+                    return (
                       <span
                         key={item}
-                        className={`px-4 py-2 rounded-sm text-[13px] font-balotro uppercase tracking-wider ${
-                          index % 2 === 0
-                            ? "bg-orange/20 text-brown"
-                            : "bg-orange/30 text-cream"
-                        }`}
+                        className="font-grillmaster text-[16.91px] text-cream px-3 py-1"
+                        style={{ backgroundColor: "#99B0C6", borderRadius: i % 2 === 0 ? "0px" : "9999px" }}
                       >
                         {item}
                       </span>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
-
-                {/* Equipamiento */}
-                <div className="mb-8">
-                  <h3 className="font-grillmaster text-[17px] font-bold mb-3">
-                    Equipamiento incluido:
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {apt.equipamiento.map((item) => (
-                      <div key={item} className="flex items-center gap-2">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          className="opacity-60 flex-shrink-0"
-                        >
-                          <path d="M20 6L9 17l-5-5" />
-                        </svg>
-                        <span className="font-grillmaster text-[15px] opacity-70">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <a
-                  href="/contacto"
-                  className={`inline-flex items-center justify-center px-8 py-3 font-balotro text-[13px] uppercase tracking-wider rounded-sm transition-colors ${
-                    index % 2 === 0
-                      ? "bg-brown text-cream hover:bg-brown/90"
-                      : "bg-cream text-brown hover:bg-cream/90"
-                  }`}
-                >
-                  Reservar
-                </a>
-              </div>
+              ))}
             </div>
           </div>
-        </section>
-      ))}
+
+          {/* Right column */}
+          <div className="w-full lg:w-1/2 flex flex-col">
+            {/* Stats + button row */}
+            <div className="flex items-center justify-between gap-4 mb-10">
+              {/* Stats badges */}
+              <div className="flex items-center gap-0">
+                <div className="flex items-center gap-2 px-6 py-3 border border-brown">
+                  <img src="/icons/Group-Team--Streamline-Atlas.svg" alt="" className="w-[22px] h-[22px]" />
+                  <span className="font-grillmaster text-[16.91px] text-brown uppercase">4 PAX</span>
+                </div>
+                <div className="flex items-center gap-2 px-6 py-3 border border-brown -ml-px">
+                  <img src="/icons/Toilet--Streamline-Atlas.svg" alt="" className="w-[22px] h-[22px]" />
+                  <span className="font-grillmaster text-[16.91px] text-brown uppercase">1 BAÑO</span>
+                </div>
+                <div className="flex items-center gap-2 px-6 py-3 border border-brown -ml-px">
+                  <img src="/icons/Vector (3).svg" alt="" className="w-[22px] h-[22px]" />
+                  <span className="font-grillmaster text-[16.91px] text-brown uppercase">2 HAB</span>
+                </div>
+              </div>
+              {/* Button */}
+              <a href="#" className="inline-flex items-center group flex-shrink-0">
+                <span className="bg-brown group-hover:bg-brown/80 transition-colors px-6 py-3 font-grillmaster text-[16.91px] text-cream uppercase">
+                  Ver disponibilidad
+                </span>
+                <span className="w-[46px] h-[46px] bg-brown group-hover:bg-brown/80 transition-colors rounded-full flex items-center justify-center">
+                  <img src="/icons/Capa_1.svg" alt="" className="w-[10px] h-[8px]" style={{ filter: "invert(1)" }} />
+                </span>
+              </a>
+            </div>
+
+            {/* Ideal para */}
+            <p className="font-grillmaster text-[16.91px] text-brown mb-4">Ideal para:</p>
+            <ul className="w-full">
+              {["FAMILIAS", "GRUPOS DE AMIGOS", "ESCAPADAS DE FIN DE SEMANA"].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-4 py-9 border-b border-brown"
+                >
+                  <span className="w-[10px] h-[10px] rounded-full flex-shrink-0" style={{ backgroundColor: "#99B0C6" }} />
+                  <span className="font-balotro text-[12.91px] text-brown uppercase">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

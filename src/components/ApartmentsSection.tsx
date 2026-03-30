@@ -8,7 +8,7 @@ const apartments = [
     name: "LA\nFUENTE",
     titleSvg: "/icons/Group-31.svg",
     icon: "/icons/Group-127.svg",
-    iconSmall: "/icons/Vector-1.svg",
+    iconSmall: "/icons/Group1.svg",
     color: "#99B0C6",
     photo: "/images/unsplash_jUQclDhyIAI-(4).jpg",
     description:

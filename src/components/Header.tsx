@@ -43,7 +43,7 @@ export default function Header() {
               className={item.label === "Reserva" ? "bg-brown p-[1px] -ml-px" : navLinkClass}
             >
               {item.label === "Reserva" ? (
-                <span className="block bg-cream px-5 py-2.5 font-grillmaster text-[16.91px] text-brown uppercase rounded-[13.35px]">
+                <span className="block bg-cream hover:bg-[#EADDC7] transition-colors px-5 py-2.5 font-grillmaster text-[16.91px] text-brown uppercase rounded-[13.35px]">
                   {item.label}
                 </span>
               ) : item.label}
