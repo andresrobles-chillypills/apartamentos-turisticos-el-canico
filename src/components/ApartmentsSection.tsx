@@ -10,6 +10,7 @@ const apartments = [
     icon: "/icons/Group-127.svg",
     iconSmall: "/icons/Vector-1.svg",
     color: "#99B0C6",
+    photo: "/images/unsplash_jUQclDhyIAI-(4).jpg",
     description:
       "ESPACIOSO, LUMINOSO Y ACOGEDOR. IDEAL PARA FAMILIAS O GRUPOS QUE QUIERAN DISFRUTAR DE UNA ESCAPADA RURAL EN MORATALLA CON TODAS LAS COMODIDADES.",
     pax: 4,
@@ -20,6 +21,7 @@ const apartments = [
     icon: "/icons/Group-125.svg",
     iconSmall: "/icons/Group-1.svg",
     color: "#C25630",
+    photo: "/images/unsplash_jUQclDhyIAI-(3).jpg",
     description:
       "UN RINCÓN CON ENCANTO EN EL CORAZÓN DEL CASCO ANTIGUO. PERFECTO PARA PAREJAS QUE BUSCAN TRANQUILIDAD Y AUTENTICIDAD.",
     pax: 2,
@@ -30,6 +32,7 @@ const apartments = [
     icon: "/icons/Group-124.svg",
     iconSmall: "/icons/Vector.svg",
     color: "#7A7A56",
+    photo: "/images/unsplash_jUQclDhyIAI-(1).jpg",
     description:
       "TRADICIÓN Y CONFORT EN UN ESPACIO ÚNICO. IDEAL PARA QUIENES QUIEREN VIVIR MORATALLA DESDE DENTRO.",
     pax: 4,
@@ -40,6 +43,7 @@ const apartments = [
     icon: "/icons/Group-126.svg",
     iconSmall: "/icons/Group.svg",
     color: "#D38734",
+    photo: "/images/unsplash_jUQclDhyIAI-(2).jpg",
     description:
       "CALIDEZ Y DISEÑO EN CADA DETALLE. UNA EXPERIENCIA RURAL CON TODO LO QUE NECESITAS PARA DESCONECTAR.",
     pax: 4,
@@ -71,9 +75,9 @@ export default function ApartmentsSection() {
     navigate(current === apartments.length - 1 ? 0 : current + 1, "right");
 
   return (
-    <section className="h-screen w-full flex flex-col lg:flex-row">
+    <section className="h-[110vh] w-full flex flex-col lg:flex-row">
       {/* Left column - brown */}
-      <div className="w-full lg:w-1/2 bg-brown flex flex-col items-center justify-center px-6 py-16 lg:py-0">
+      <div className="w-full lg:w-1/2 bg-brown flex flex-col items-center justify-center px-6 py-16 lg:py-12">
         {/* 4 apartment icons */}
         <div className="flex items-center gap-3 mb-8">
           {apartments.map((a, i) => (
@@ -184,15 +188,17 @@ export default function ApartmentsSection() {
 function ApartmentCardContent({ apt, prev, next }: { apt: typeof apartments[0]; prev: () => void; next: () => void }) {
   return (
     <>
-      {apt.titleSvg ? (
-        <img src={apt.titleSvg} alt={apt.name} className="h-[150px] w-auto self-start" />
-      ) : (
-        <h3 className="font-averia font-bold text-[49.22px] leading-[50px] text-brown uppercase whitespace-pre-line">
-          {apt.name}
-        </h3>
-      )}
-      <img src={apt.iconSmall} alt="" className="w-[50px] h-[50px] mt-4" />
-      <div className="flex items-start justify-between mt-auto mb-8 gap-6">
+      <div className="flex flex-col items-start">
+        {apt.titleSvg ? (
+          <img src={apt.titleSvg} alt={apt.name} className="h-[150px] w-auto" />
+        ) : (
+          <h3 className="font-averia font-bold text-[49.22px] leading-[50px] text-brown uppercase whitespace-pre-line">
+            {apt.name}
+          </h3>
+        )}
+        <img src={apt.iconSmall} alt="" className="w-[50px] h-[50px] mt-4" />
+      </div>
+      <div className="flex items-start justify-between mt-6 mb-8 gap-6">
         <p className="font-grillmaster text-[16.91px] leading-[20px] text-brown uppercase max-w-[340px]">
           {apt.description}
         </p>
@@ -211,7 +217,7 @@ function ApartmentCardContent({ apt, prev, next }: { apt: typeof apartments[0]; 
           </Link>
         </div>
       </div>
-      <div className="w-full flex-1 min-h-[300px] bg-brown/10 rounded-[30px]" />
+      <img src={apt.photo} alt={apt.name} className="w-full mt-auto min-h-[300px] object-cover rounded-[30px]" style={{ maxHeight: "500px" }} />
       <div className="flex items-center justify-between mt-6">
         <button onClick={prev} className="w-[85px] h-[36px] bg-brown p-[1px] border-none outline-none cursor-pointer group/arrow">
           <div className="w-full h-full bg-cream group-hover/arrow:bg-[#ede2cc] rounded-[5px] flex items-center justify-center transition-colors">

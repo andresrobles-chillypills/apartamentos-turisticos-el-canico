@@ -28,7 +28,7 @@ export default function LocationSection() {
   }, []);
 
   return (
-    <section className="bg-cream py-24 px-6 lg:px-20">
+    <section className="bg-cream px-6 lg:px-12 pt-28 lg:pt-48 pb-20 lg:pb-40">
       {/* Top: two columns */}
       <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row gap-12">
         {/* Left column */}
@@ -63,26 +63,42 @@ export default function LocationSection() {
             {activities.map((item, i) => (
               <li
                 key={i}
-                className="flex items-center gap-6 py-4 border-t border-brown/30 font-grillmaster text-[16.91px] text-brown uppercase"
+                className="flex items-center gap-6 py-7 border-b border-brown font-balotro text-[12.91px] text-brown uppercase"
               >
-                <span className="font-balotro text-[12.91px] text-brown/60 w-8 flex-shrink-0">
+                <span className="font-balotro text-[12.91px] text-brown w-8 flex-shrink-0">
                   {String(i + 1).padStart(2, "0")}.
                 </span>
                 {item}
               </li>
             ))}
-            <li className="border-t border-brown/30" />
+
           </ul>
         </div>
       </div>
 
       {/* Bottom: photo grid */}
-      <div className="max-w-[1920px] mx-auto mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {[0, 1, 2, 3].map((i) => (
-          <div
-            key={i}
-            className="w-full aspect-[3/4] bg-brown/10 rounded-[20px]"
-          />
+      <div className="max-w-[1920px] mx-auto mt-32 grid grid-cols-2 lg:grid-cols-4 gap-4 items-start">
+        {[
+          "/images/Rectangle-26.jpg",
+          "/images/unsplash_jUQclDhyIAI-(5).jpg",
+          "/images/Rectangle-28.jpg",
+          "/images/Rectangle-29.jpg",
+        ].map((photo, i) => (
+          photo ? (
+            <img
+              key={i}
+              src={photo}
+              alt=""
+              className="w-full object-cover rounded-[30px] hover:rounded-none transition-all duration-300"
+              style={{ height: i % 2 === 0 ? "409px" : "562px" }}
+            />
+          ) : (
+            <div
+              key={i}
+              className="w-full bg-brown/10 rounded-[30px] hover:rounded-none transition-all duration-300"
+              style={{ height: i % 2 === 0 ? "409px" : "562px" }}
+            />
+          )
         ))}
       </div>
     </section>

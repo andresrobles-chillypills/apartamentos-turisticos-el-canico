@@ -21,7 +21,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinkClass =
-    "font-grillmaster text-[16.91px] text-brown uppercase px-5 py-2.5 border border-brown/80 -ml-px first:ml-0";
+    "font-grillmaster text-[16.91px] text-brown uppercase px-5 py-2.5 border border-brown/80 -ml-px first:ml-0 hover:bg-brown/10 transition-colors";
 
   return (
     <header className="bg-cream">

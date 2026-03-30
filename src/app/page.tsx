@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ApartmentsSection from "@/components/ApartmentsSection";
 import LocationSection from "@/components/LocationSection";
+import ReviewsSection from "@/components/ReviewsSection";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-24 items-center">
             {/* Left column - photo + text */}
             <div className="flex flex-col items-center">
-              <div className="w-full max-w-[246px] aspect-[246/344] bg-brown/10" />
+              <img src="/images/unsplash_jUQclDhyIAI.jpg" alt="" className="w-full max-w-[246px] aspect-[246/344] object-cover" />
               <p className="font-balotro text-[12.91px] text-brown uppercase text-center max-w-[246px] mt-[1em]">
                 En el corazón del casco antiguo de Moratalla
               </p>
@@ -39,7 +40,7 @@ export default function Home() {
 
             {/* Right column - photo + text */}
             <div className="flex flex-col items-center">
-              <div className="w-full max-w-[246px] aspect-[246/344] bg-brown/10" />
+              <img src="/images/ChatGPT-Image-27-feb-2026-13_59_31-1.jpg" alt="" className="w-full max-w-[246px] aspect-[246/344] object-cover" />
               <p className="font-balotro text-[12.91px] text-brown uppercase text-center max-w-[246px] mt-[1em]">
                 Apartamentos Turísticos en Moratalla – El Cañico, junto al Castillo
               </p>
@@ -100,7 +101,7 @@ export default function Home() {
           </h2>
 
           {/* Photo */}
-          <div className="mt-[2em] w-full max-w-[500px] aspect-square bg-cream/10 rounded-[50px] mt-[3em]" />
+          <img src="/images/Rectangle-7.jpg" alt="" className="w-full max-w-[500px] aspect-square object-cover rounded-[50px] mt-[3em]" />
 
           {/* Text */}
           <p className="font-grillmaster text-[16.91px] text-cream leading-relaxed max-w-[600px] mt-[3em]">
@@ -137,15 +138,22 @@ export default function Home() {
       </section>
 
       {/* Full-screen Photo Section */}
-      <section className="relative h-screen w-full">
-        <div className="absolute inset-0 bg-brown/40" />
-      </section>
+      <section
+        className="h-screen w-full"
+        style={{
+          backgroundImage: "url(/images/iStock-2235884399-1.jpg)",
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
 
       {/* Apartments Section */}
       <ApartmentsSection />
 
       {/* Location Section */}
       <LocationSection />
+      <ReviewsSection />
     </div>
   );
 }
