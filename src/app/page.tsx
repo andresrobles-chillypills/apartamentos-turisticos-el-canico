@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="bg-cream pt-16 pb-60 lg:pt-24 lg:pb-96">
-        <div className="max-w-[1920px] mx-auto px-6 lg:px-20">
+        <div className="max-w-[1920px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-24 items-center">
             {/* Left column - photo + text */}
             <div className="flex flex-col items-center">
@@ -94,7 +94,7 @@ export default function Home() {
 
       {/* About Section */}
       <section className="bg-brown pt-52 pb-[2em] lg:pt-80 lg:pb-[2em]">
-        <div className="max-w-[1920px] mx-auto px-6 lg:px-20 flex flex-col items-center text-center">
+        <div className="max-w-[1920px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
           {/* Title */}
           <h2 className="font-balotro text-[32.75px] leading-[36px] text-cream uppercase">
             Dormir donde nace<br />la historia del agua

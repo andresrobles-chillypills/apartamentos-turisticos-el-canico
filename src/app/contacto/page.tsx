@@ -1,161 +1,148 @@
 "use client";
 
-import { useState } from "react";
-
 export default function ContactoPage() {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    apellidos: "",
-    email: "",
-    telefono: "",
-    mensaje: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: integrate with form service
-    alert("Formulario enviado. Nos pondremos en contacto contigo pronto.");
-  };
-
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative h-[400px] lg:h-[600px] overflow-hidden">
-        <div className="absolute inset-0 bg-brown/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brown/90 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col justify-end max-w-[1920px] mx-auto px-6 lg:px-20 pb-16">
-          <p className="font-balotro text-[13px] text-cream/60 uppercase tracking-wider mb-4">
-            apartamentos turísticos el cañico
-          </p>
-          <h1 className="font-averia font-bold text-cream text-[42px] lg:text-[49px] leading-tight max-w-[657px]">
-            Estamos en el casco antiguo de Moratalla, junto al Castillo.
-          </h1>
-          <p className="font-grillmaster text-[17px] text-cream/70 max-w-[492px] mt-6">
-            ¿Tienes alguna duda sobre tu estancia? ¿Quieres consultar
-            disponibilidad? Estaremos encantados de ayudarte.
-          </p>
-        </div>
-      </section>
+    <>
+      <div className="relative z-10 bg-cream px-6 lg:px-12 pt-32 pb-14">
+      <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row gap-16">
 
-      {/* Contact Form */}
-      <section className="bg-cream py-20 lg:py-32">
-        <div className="max-w-[1920px] mx-auto px-6 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-grillmaster text-[17px] text-brown mb-2">
-                    nombre
-                  </label>
+        {/* Left column */}
+        <div className="w-full lg:w-[60%] flex flex-col">
+          <p className="font-balotro text-[12.91px] text-brown uppercase tracking-wider mb-4">
+            Apartamentos Turísticos El Cañico
+          </p>
+          <h1 className="font-averia font-bold text-[49.22px] leading-[50px] text-brown uppercase mb-12 max-w-[700px]">
+            Estamos en el casco antiguo de Moratalla, junto al castillo.
+          </h1>
+
+          {/* Form */}
+          <form className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-3">
+                <div className="flex flex-col gap-2 flex-1">
+                  <label className="font-grillmaster text-[16.91px] text-brown uppercase">Nombre</label>
                   <input
                     type="text"
-                    placeholder="Escribe aquí tu nombre.."
-                    value={formData.nombre}
-                    onChange={(e) =>
-                      setFormData({ ...formData, nombre: e.target.value })
-                    }
-                    className="w-full h-[66px] px-6 bg-transparent border border-brown/30 rounded-sm font-grillmaster text-[17px] text-brown placeholder:text-brown/40 focus:outline-none focus:border-brown transition-colors"
+                    placeholder="ESCRIBE AQUÍ TU NOMBRE..."
+                    className="w-full font-grillmaster text-[16.91px] text-brown uppercase placeholder:text-brown/40 bg-transparent border border-brown rounded-full px-6 py-4 outline-none"
                   />
                 </div>
-                <div>
-                  <label className="block font-grillmaster text-[17px] text-brown mb-2">
-                    apellidos
-                  </label>
+                <div className="flex flex-col gap-2 flex-1">
+                  <label className="font-grillmaster text-[16.91px] text-brown uppercase">Apellidos</label>
                   <input
                     type="text"
-                    placeholder="Escribe aquí tus apellidos..."
-                    value={formData.apellidos}
-                    onChange={(e) =>
-                      setFormData({ ...formData, apellidos: e.target.value })
-                    }
-                    className="w-full h-[66px] px-6 bg-transparent border border-brown/30 rounded-sm font-grillmaster text-[17px] text-brown placeholder:text-brown/40 focus:outline-none focus:border-brown transition-colors"
+                    placeholder="ESCRIBE AQUÍ TUS APELLIDOS..."
+                    className="w-full font-grillmaster text-[16.91px] text-brown uppercase placeholder:text-brown/40 bg-transparent border border-brown rounded-full px-6 py-4 outline-none"
                   />
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-grillmaster text-[17px] text-brown mb-2">
-                    email
-                  </label>
+              <div className="flex gap-3">
+                <div className="flex flex-col gap-2 flex-1">
+                  <label className="font-grillmaster text-[16.91px] text-brown uppercase">Email</label>
                   <input
                     type="email"
-                    placeholder="Escribe aquí tu correo..."
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full h-[66px] px-6 bg-transparent border border-brown/30 rounded-sm font-grillmaster text-[17px] text-brown placeholder:text-brown/40 focus:outline-none focus:border-brown transition-colors"
+                    placeholder="ESCRIBE AQUÍ TU CORREO..."
+                    className="w-full font-grillmaster text-[16.91px] text-brown uppercase placeholder:text-brown/40 bg-transparent border border-brown rounded-full px-6 py-4 outline-none"
                   />
                 </div>
-                <div>
-                  <label className="block font-grillmaster text-[17px] text-brown mb-2">
-                    teléfono
-                  </label>
+                <div className="flex flex-col gap-2 flex-1">
+                  <label className="font-grillmaster text-[16.91px] text-brown uppercase">Teléfono</label>
                   <input
                     type="tel"
-                    placeholder="Escribe aquí tu teléfono..."
-                    value={formData.telefono}
-                    onChange={(e) =>
-                      setFormData({ ...formData, telefono: e.target.value })
-                    }
-                    className="w-full h-[66px] px-6 bg-transparent border border-brown/30 rounded-sm font-grillmaster text-[17px] text-brown placeholder:text-brown/40 focus:outline-none focus:border-brown transition-colors"
+                    placeholder="ESCRIBE AQUÍ TU TELÉFONO..."
+                    className="w-full font-grillmaster text-[16.91px] text-brown uppercase placeholder:text-brown/40 bg-transparent border border-brown rounded-full px-6 py-4 outline-none"
                   />
                 </div>
               </div>
-
-              <div>
-                <label className="block font-grillmaster text-[17px] text-brown mb-2">
-                  Cuéntanos que necesitas
-                </label>
-                <textarea
-                  placeholder="Si quieres consultar disponibilidad indícanos fechas y numero de personas aquí..."
-                  value={formData.mensaje}
-                  onChange={(e) =>
-                    setFormData({ ...formData, mensaje: e.target.value })
-                  }
-                  rows={6}
-                  className="w-full px-6 py-4 bg-transparent border border-brown/30 rounded-sm font-grillmaster text-[17px] text-brown placeholder:text-brown/40 focus:outline-none focus:border-brown transition-colors resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center px-10 py-4 bg-brown text-cream font-balotro text-[13px] uppercase tracking-wider rounded-sm hover:bg-brown/90 transition-colors"
-              >
-                Enviar mensaje
-              </button>
-            </form>
-
-            {/* Info */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-balotro text-[13px] text-brown uppercase tracking-wider mb-3">
-                  Dirección
-                </h3>
-                <p className="font-grillmaster text-[17px] text-brown/70">
-                  Casco antiguo de Moratalla
-                  <br />
-                  Murcia, España
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-balotro text-[13px] text-brown uppercase tracking-wider mb-3">
-                  Contacto
-                </h3>
-                <p className="font-grillmaster text-[17px] text-brown/70">
-                  info@elcanico.com
-                </p>
-              </div>
-
-              {/* Map placeholder */}
-              <div className="w-full aspect-[4/3] bg-brown/10 rounded-sm" />
             </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="font-grillmaster text-[16.91px] text-brown uppercase">Cuéntanos qué necesitas</label>
+              <textarea
+                rows={8}
+                placeholder="SI QUIERES CONSULTAR DISPONIBILIDAD INDÍCANOS FECHAS Y NUMERO DE PERSONAS AQUÍ..."
+                className="font-grillmaster text-[16.91px] text-brown uppercase placeholder:text-brown/40 bg-transparent border border-brown rounded-[30px] px-6 py-4 outline-none resize-none"
+              />
+            </div>
+
+            <div className="flex items-center justify-between mt-2">
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" required className="w-4 h-4 accent-brown cursor-pointer" />
+                <span className="font-grillmaster text-[14px] text-brown uppercase">
+                  He leído y acepto la{" "}
+                  <a href="/politica-de-privacidad" className="underline hover:opacity-70 transition-opacity">
+                    política de privacidad
+                  </a>
+                </span>
+              </label>
+              <button type="submit" className="inline-flex items-center group">
+                <span className="bg-brown group-hover:bg-brown/80 transition-colors px-8 py-3 font-grillmaster text-[16.91px] text-cream uppercase">
+                  Enviar
+                </span>
+                <span className="w-[46px] h-[46px] bg-brown group-hover:bg-brown/80 transition-colors rounded-full flex items-center justify-center">
+                  <span className="inline-block w-[10px] h-[8px]" style={{ backgroundColor: "#FBF0DA", WebkitMaskImage: "url(/icons/Capa_1.svg)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center", maskImage: "url(/icons/Capa_1.svg)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center" }} />
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {/* Right column */}
+        <div className="w-full lg:w-[40%] flex flex-col justify-start items-end gap-4 pt-32 text-right">
+          <p className="font-grillmaster text-[16.91px] text-brown text-left max-w-[500px]">
+            ¿Tienes alguna duda sobre tu estancia? ¿Quieres consultar disponibilidad?<br/>Estaremos encantados de ayudarte.
+          </p>
+
+          <div className="flex flex-col gap-3 mt-12 items-end">
+            {/* WhatsApp */}
+            <a href="https://wa.me/34600600600" className="flex items-center justify-end gap-6 bg-[#7A7A56] px-8 py-5">
+              <span className="inline-block w-[28px] h-[28px] flex-shrink-0" style={{ backgroundColor: "#FBF0DA", WebkitMaskImage: "url(/icons/Whatsapp--Streamline-Atlas.svg)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center", maskImage: "url(/icons/Whatsapp--Streamline-Atlas.svg)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center" }} />
+              <span className="font-grillmaster text-[18px] text-cream uppercase">+34 600 600 600</span>
+            </a>
+
+            {/* Email */}
+            <a href="mailto:info@apartamentoselcanico.es" className="flex items-center justify-end gap-6 bg-[#99B0C6] px-8 py-5 rounded-full">
+              <span className="inline-block w-[28px] h-[28px] flex-shrink-0" style={{ backgroundColor: "#FBF0DA", WebkitMaskImage: "url(/icons/Envelope-Lines--Streamline-Atlas.svg)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center", maskImage: "url(/icons/Envelope-Lines--Streamline-Atlas.svg)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center" }} />
+              <span className="font-grillmaster text-[18px] text-cream uppercase">info@apartamentoselcanico.es</span>
+            </a>
+
+            {/* Address */}
+            <a href="#" className="flex items-center justify-end gap-6 bg-[#D38734] px-8 py-5">
+              <span className="inline-block w-[28px] h-[28px] flex-shrink-0" style={{ backgroundColor: "#FBF0DA", WebkitMaskImage: "url(/icons/Direction-Post--Streamline-Atlas.svg)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center", maskImage: "url(/icons/Direction-Post--Streamline-Atlas.svg)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center" }} />
+              <span className="font-grillmaster text-[18px] text-cream uppercase max-w-[350px]">Barrio de El Cañico, Casco Antiguo de Moratalla 30440 – Moratalla (Murcia)</span>
+            </a>
           </div>
         </div>
-      </section>
+
+      </div>
+      </div>
+
+    {/* Google Maps */}
+    <div className="w-full h-[80vh]">
+      <iframe
+        src="https://maps.google.com/maps?q=38.190840,-1.894598&z=16&output=embed"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
     </div>
+
+    {/* Full width photo - parallax */}
+    <div className="relative overflow-hidden" style={{ height: "90vh" }}>
+      <div
+        className="absolute inset-0 w-full"
+        style={{
+          backgroundImage: "url(/images/ChatGPT-Image-27-feb-2026-13_59_31-2.jpg)",
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100%",
+        }}
+      />
+    </div>
+    </>
   );
 }

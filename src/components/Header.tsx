@@ -33,7 +33,7 @@ export default function Header() {
       </div>
 
       {/* Nav bar */}
-      <div className="max-w-[1827px] mx-auto flex items-center justify-between px-6 lg:px-12 py-6">
+      <div className="flex items-center justify-between px-6 lg:px-12 py-6">
         {/* Left nav */}
         <nav className="hidden lg:flex items-center">
           {leftNav.map((item) => (

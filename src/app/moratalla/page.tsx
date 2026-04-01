@@ -79,7 +79,7 @@ export default function MoratallaPage() {
     <div>
       {/* Hero */}
       <section className="relative w-full overflow-hidden" style={{ height: "130vh" }}>
-        <div className="absolute inset-0 bg-brown/60" />
+        <img src="/images/unsplash_jUQclDhyIAI (9).jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 flex items-center justify-center" style={{ marginTop: "-80px" }}>
           <div className="relative flex flex-col items-center justify-start text-center" style={{ width: "671px", height: "587px" }}>
             <img src="/icons/Rectangle 37.svg" alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: "fill" }} />
@@ -105,7 +105,7 @@ export default function MoratallaPage() {
 
         {/* Image + rotating badge */}
         <div className="relative mb-8" style={{ width: "385px", height: "385px" }}>
-          <div className="bg-cream/20 rounded-[50px] w-full h-full" />
+          <img src="/images/Rectangle 50.jpg" alt="" className="w-full h-full object-cover rounded-[50px]" />
           <img
             ref={iconRef}
             src="/icons/Capa_1 (1).svg"
@@ -230,7 +230,7 @@ export default function MoratallaPage() {
           {/* Card 2 */}
           <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
             {/* Left: stacked photos */}
-            <StackedCards />
+            <StackedCards img1="/images/Rectangle 43.jpg" img2="/images/Rectangle 42.jpg" />
 
             {/* Center: text */}
             <div className="flex-1 max-w-[440px]">
@@ -268,7 +268,7 @@ export default function MoratallaPage() {
           {/* Card 3 */}
           <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
             {/* Left: stacked photos */}
-            <StackedCards />
+            <StackedCards img1="/images/Rectangle 45.jpg" img2="/images/Rectangle 44.jpg" />
 
             {/* Center: text */}
             <div className="flex-1 max-w-[440px]">
@@ -291,7 +291,7 @@ export default function MoratallaPage() {
           {/* Card 4 */}
           <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
             {/* Left: stacked photos */}
-            <StackedCards />
+            <StackedCards img1="/images/Rectangle 47.jpg" img2="/images/Rectangle 46.jpg" />
 
             {/* Center: text */}
             <div className="flex-1 max-w-[440px]">
@@ -324,7 +324,7 @@ export default function MoratallaPage() {
           {/* Card 5 */}
           <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
             {/* Left: stacked photos */}
-            <StackedCards />
+            <StackedCards img1="/images/Rectangle 49.jpg" img2="/images/Rectangle 42.jpg" />
 
             {/* Center: text */}
             <div className="flex-1 max-w-[440px]">
@@ -359,7 +359,19 @@ export default function MoratallaPage() {
       </section>
       </div>
 
-      <div className="h-[600px] bg-cream" />
+      {/* Full width photo - parallax */}
+      <div className="relative z-10 overflow-hidden" style={{ height: "90vh" }}>
+        <div
+          className="absolute inset-0 w-full"
+          style={{
+            backgroundImage: "url(/images/ChatGPT-Image-27-feb-2026-10_57_34-1.jpg)",
+            backgroundAttachment: "fixed",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            height: "100%",
+          }}
+        />
+      </div>
     </div>
   );
 }

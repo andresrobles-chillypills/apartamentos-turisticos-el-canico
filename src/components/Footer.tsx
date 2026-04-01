@@ -98,9 +98,14 @@ export default function Footer() {
         {/* Logo + copyright */}
         <div className="flex flex-col gap-4">
           <img src="/icons/Group-49.svg" alt="El Cañico" className="h-[80px] w-auto self-start" />
-          <p className="font-grillmaster uppercase text-[16.91px]">
-            Apartamentos El Ca<span className="font-sans">ñ</span>ico 2026©
-          </p>
+          <div className="flex items-center gap-6">
+            <p className="font-grillmaster uppercase text-[16.91px]">
+              Apartamentos El Ca<span className="font-sans">ñ</span>ico 2026©
+            </p>
+            <a href="https://chillypills.com/" target="_blank" rel="noopener noreferrer" className="font-grillmaster uppercase text-[16.91px] text-cream/60 hover:text-cream transition-colors">
+              Diseño Web Chillypills
+            </a>
+          </div>
         </div>
 
         {/* Nav links */}
@@ -143,8 +148,8 @@ export default function Footer() {
             <p className="font-grillmaster text-[16.91px] text-cream uppercase mb-4">Legal</p>
             <ul className="space-y-2">
               {[
-                { label: "Política de Privacidad", href: "#" },
-                { label: "Política de cookies", href: "#" },
+                { label: "Política de Privacidad", href: "/politica-de-privacidad" },
+                { label: "Política de cookies", href: "/politica-de-cookies" },
                 { label: "Aviso Legal", href: "#" },
               ].map((item) => (
                 <li key={item.label}>
