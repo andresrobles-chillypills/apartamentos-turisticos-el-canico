@@ -8,7 +8,7 @@ const apartments = [
     name: "LA\nFUENTE",
     titleSvg: "/icons/Group-31.svg",
     icon: "/icons/Group-127.svg",
-    iconSmall: "/icons/Group1.svg",
+    iconSmall: "/icons/Vector-1.svg",
     color: "#99B0C6",
     photo: "/images/unsplash_jUQclDhyIAI-(4).jpg",
     description:
@@ -75,9 +75,9 @@ export default function ApartmentsSection() {
     navigate(current === apartments.length - 1 ? 0 : current + 1, "right");
 
   return (
-    <section className="h-[110vh] w-full flex flex-col lg:flex-row">
+    <section className="w-full flex flex-col lg:flex-row lg:h-[110vh]">
       {/* Left column - brown */}
-      <div className="w-full lg:w-1/2 bg-brown flex flex-col items-center justify-center px-6 py-16 lg:py-12">
+      <div className="w-full lg:w-1/2 bg-brown flex flex-col items-center justify-center px-6 py-12 lg:py-12">
         {/* 4 apartment icons */}
         <div className="flex items-center gap-3 mb-8">
           {apartments.map((a, i) => (
@@ -148,7 +148,7 @@ export default function ApartmentsSection() {
       </div>
 
       {/* Right column */}
-      <div className="w-full lg:w-1/2 relative overflow-hidden">
+      <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[600px] sm:min-h-[700px] lg:min-h-0">
         {/* Incoming slide (slides in from right) */}
         {animating && incoming !== null && (
           <div
@@ -190,43 +190,43 @@ function ApartmentCardContent({ apt, prev, next }: { apt: typeof apartments[0]; 
     <>
       <div className="flex flex-col items-start">
         {apt.titleSvg ? (
-          <img src={apt.titleSvg} alt={apt.name} className="h-[150px] w-auto" />
+          <img src={apt.titleSvg} alt={apt.name} className="h-[100px] sm:h-[130px] lg:h-[150px] w-auto" />
         ) : (
-          <h3 className="font-averia font-bold text-[49.22px] leading-[50px] text-brown uppercase whitespace-pre-line">
+          <h3 className="font-averia font-bold text-[36px] sm:text-[44px] lg:text-[49.22px] leading-[40px] lg:leading-[50px] text-brown uppercase whitespace-pre-line">
             {apt.name}
           </h3>
         )}
-        <img src={apt.iconSmall} alt="" className="w-[50px] h-[50px] mt-4" />
+        <img src={apt.iconSmall} alt="" className="w-[40px] h-[40px] lg:w-[50px] lg:h-[50px] mt-3 lg:mt-4" />
       </div>
-      <div className="flex items-start justify-between mt-6 mb-8 gap-6">
-        <p className="font-grillmaster text-[16.91px] leading-[20px] text-brown uppercase max-w-[340px]">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mt-4 lg:mt-6 mb-4 lg:mb-8 gap-4 lg:gap-6">
+        <p className="font-grillmaster text-[14px] sm:text-[15px] lg:text-[16.91px] leading-[18px] lg:leading-[20px] text-brown uppercase max-w-[340px]">
           {apt.description}
         </p>
-        <div className="flex flex-col items-end flex-shrink-0">
+        <div className="flex sm:flex-col items-center sm:items-end gap-3 sm:gap-0 flex-shrink-0">
           <div className="flex items-center gap-3 bg-cream px-4 py-2" style={{ border: "1.5px solid #563118" }}>
             <img src="/icons/Group-Team--Streamline-Atlas.svg" alt="" className="w-[24px] h-[24px]" />
             <span className="font-grillmaster text-[16.91px] text-brown uppercase">{apt.pax} PAX</span>
           </div>
-          <Link href="/apartamentos" className="inline-flex items-center group -mt-px">
-            <span className="bg-brown group-hover:bg-brown/80 transition-colors px-6 py-3 font-grillmaster text-[16.91px] text-cream uppercase">
-              Conoce m<span className="font-sans text-[18px]">á</span>s
+          <Link href="/apartamentos" className="inline-flex items-center group sm:-mt-px">
+            <span className="bg-brown group-hover:bg-brown/80 transition-colors px-6 py-3 font-grillmaster text-[14px] sm:text-[16.91px] text-cream uppercase">
+              Conoce m<span className="font-sans text-[16px] sm:text-[18px]">á</span>s
             </span>
-            <span className="w-[46px] h-[46px] bg-brown group-hover:bg-brown/80 transition-colors rounded-full flex items-center justify-center">
+            <span className="w-[40px] h-[40px] sm:w-[46px] sm:h-[46px] bg-brown group-hover:bg-brown/80 transition-colors rounded-full flex items-center justify-center">
               <img src="/icons/Capa_1.svg" alt="" className="w-[10px] h-[8px]" />
             </span>
           </Link>
         </div>
       </div>
-      <img src={apt.photo} alt={apt.name} className="w-full mt-auto min-h-[300px] object-cover rounded-[30px]" style={{ maxHeight: "500px" }} />
-      <div className="flex items-center justify-between mt-6">
-        <button onClick={prev} className="w-[85px] h-[36px] bg-brown p-[1px] border-none outline-none cursor-pointer group/arrow">
+      <img src={apt.photo} alt={apt.name} className="w-full mt-auto object-cover rounded-[20px] lg:rounded-[30px]" style={{ minHeight: "200px", maxHeight: "340px" }} />
+      <div className="flex items-center justify-between mt-4 lg:mt-6">
+        <button onClick={prev} className="w-[75px] sm:w-[85px] h-[36px] bg-brown p-[1px] border-none outline-none cursor-pointer group/arrow">
           <div className="w-full h-full bg-cream group-hover/arrow:bg-[#ede2cc] rounded-[5px] flex items-center justify-center transition-colors">
-            <img src="/icons/Vector-2.svg" alt="Anterior" className="w-[20px] h-auto  transition-all" />
+            <img src="/icons/Vector-2.svg" alt="Anterior" className="w-[20px] h-auto transition-all" />
           </div>
         </button>
-        <button onClick={next} className="w-[85px] h-[36px] bg-brown p-[1px] border-none outline-none cursor-pointer group/arrow">
+        <button onClick={next} className="w-[75px] sm:w-[85px] h-[36px] bg-brown p-[1px] border-none outline-none cursor-pointer group/arrow">
           <div className="w-full h-full bg-cream group-hover/arrow:bg-[#ede2cc] rounded-[5px] flex items-center justify-center transition-colors">
-            <img src="/icons/Vector-2.svg" alt="Siguiente" className="w-[20px] h-auto  transition-all" style={{ transform: "rotate(180deg)" }} />
+            <img src="/icons/Vector-2.svg" alt="Siguiente" className="w-[20px] h-auto transition-all" style={{ transform: "rotate(180deg)" }} />
           </div>
         </button>
       </div>

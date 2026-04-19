@@ -82,9 +82,18 @@ html {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background-color: var(--color-cream);
   color: var(--color-brown);
+  overflow-x: hidden;
+}
+
+/* Fotos de ubicación: misma altura en móvil/tablet para gap uniforme entre filas */
+@media (max-width: 1023px) {
+  .location-photo-grid > * {
+    height: clamp(140px, 43vw, 300px) !important;
+  }
 }

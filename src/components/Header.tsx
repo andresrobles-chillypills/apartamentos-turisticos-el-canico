@@ -26,8 +26,8 @@ export default function Header() {
   return (
     <header className="bg-cream">
       {/* Top banner */}
-      <div className="bg-orange h-[34px] flex items-center justify-center">
-        <p className="font-balotro text-[12.91px] text-brown tracking-wide">
+      <div className="bg-orange flex items-center justify-center py-2 sm:py-0 sm:h-[34px]">
+        <p className="font-balotro text-[12.91px] text-brown tracking-wide text-center px-4">
           reserva ya tu apartamento con un 10% de descuento
         </p>
       </div>
@@ -73,42 +73,66 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="lg:hidden text-brown"
+          className="lg:hidden text-brown p-1"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menú"
         >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            {menuOpen ? (
-              <path d="M6 6l12 12M6 18L18 6" />
-            ) : (
-              <path d="M3 6h18M3 12h18M3 18h18" />
-            )}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            {/* Línea superior: se convierte en diagonal \ */}
+            <line
+              x1="3" y1="6" x2="21" y2="6"
+              style={{
+                transformOrigin: "12px 6px",
+                transition: "transform 0.35s ease, opacity 0.2s ease",
+                transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none",
+              }}
+            />
+            {/* Línea central: desaparece */}
+            <line
+              x1="3" y1="12" x2="21" y2="12"
+              style={{
+                transformOrigin: "12px 12px",
+                transition: "opacity 0.2s ease, transform 0.2s ease",
+                opacity: menuOpen ? 0 : 1,
+                transform: menuOpen ? "scaleX(0)" : "none",
+              }}
+            />
+            {/* Línea inferior: se convierte en diagonal / */}
+            <line
+              x1="3" y1="18" x2="21" y2="18"
+              style={{
+                transformOrigin: "12px 18px",
+                transition: "transform 0.35s ease, opacity 0.2s ease",
+                transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none",
+              }}
+            />
           </svg>
         </button>
       </div>
 
       {/* Mobile nav */}
-      {menuOpen && (
-        <nav className="lg:hidden bg-cream border-t border-brown/10 px-6 py-4 flex flex-col gap-3">
-          {allNav.map((item) => (
+      <nav
+        className="lg:hidden overflow-hidden transition-all duration-500 ease-in-out"
+        style={{ maxHeight: menuOpen ? `${allNav.length * 64 + 32}px` : "0px", opacity: menuOpen ? 1 : 0 }}
+      >
+        <div className="bg-cream border-t border-brown/10 px-6 py-4 flex flex-col gap-3">
+          {allNav.map((item, i) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="font-grillmaster text-[16.91px] text-brown px-5 py-2.5 border border-brown/80 text-center"
+              className="font-grillmaster text-[16.91px] text-brown px-5 py-2.5 border border-brown/80 text-center transition-all duration-300"
+              style={{
+                transitionDelay: menuOpen ? `${i * 60}ms` : "0ms",
+                transform: menuOpen ? "translateY(0)" : "translateY(-8px)",
+                opacity: menuOpen ? 1 : 0,
+              }}
             >
               {item.label}
             </Link>
           ))}
-        </nav>
-      )}
+        </div>
+      </nav>
     </header>
   );
 }

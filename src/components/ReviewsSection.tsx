@@ -38,19 +38,19 @@ function Stars({ count }: { count: number }) {
 
 export default function ReviewsSection() {
   return (
-    <section className="bg-[#C25630] px-6 lg:px-12 pt-28 lg:pt-40 pb-80 lg:pb-[450px] min-h-[900px]">
+    <section className="bg-[#C25630] px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-40 pb-40 sm:pb-60 lg:pb-[450px] min-h-0 lg:min-h-[900px]">
       {/* Header */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-8 lg:mb-10">
         <p className="font-balotro text-[12.91px] text-brown uppercase tracking-wider mb-4">
           Reseñas
         </p>
-        <h2 className="font-averia font-bold text-[49.22px] leading-[50px] text-brown uppercase">
-          Lo que dicen<br />nuestros hu<span className="font-sans text-[54px]">é</span>spedes
+        <h2 className="font-averia font-bold text-[36px] sm:text-[44px] lg:text-[49.22px] leading-[38px] sm:leading-[46px] lg:leading-[50px] text-brown uppercase">
+          Lo que dicen<br />nuestros hu<span className="font-sans text-[40px] sm:text-[48px] lg:text-[54px]">é</span>spedes
         </h2>
       </div>
 
       {/* Google Reviews bar */}
-      <div className="bg-white rounded-[12px] flex items-center justify-between px-6 py-4 mb-8 max-w-[840px] mx-auto">
+      <div className="bg-white rounded-[12px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 px-4 sm:px-6 py-4 mb-8 max-w-[840px] mx-auto">
         <div className="flex items-center gap-3">
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -74,7 +74,7 @@ export default function ReviewsSection() {
 
       {/* Reviews grid */}
       <div className="max-w-[840px] mx-auto relative">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {reviews.map((r, i) => (
             <div key={i} className="bg-white rounded-[12px] p-4 flex flex-col justify-between">
               <div>
@@ -94,11 +94,11 @@ export default function ReviewsSection() {
           ))}
         </div>
 
-        {/* Arrows */}
-        <button className="absolute left-[-40px] top-1/2 -translate-y-1/2 w-8 h-8 bg-white/40 rounded-full flex items-center justify-center">
+        {/* Arrows - solo visibles en escritorio donde hay espacio fuera del grid */}
+        <button className="hidden lg:flex absolute left-[-40px] top-1/2 -translate-y-1/2 w-8 h-8 bg-white/40 rounded-full items-center justify-center">
           <img src="/icons/Vector-2.svg" alt="Anterior" className="w-[14px] h-auto" />
         </button>
-        <button className="absolute right-[-40px] top-1/2 -translate-y-1/2 w-8 h-8 bg-white/40 rounded-full flex items-center justify-center">
+        <button className="hidden lg:flex absolute right-[-40px] top-1/2 -translate-y-1/2 w-8 h-8 bg-white/40 rounded-full items-center justify-center">
           <img src="/icons/Vector-2.svg" alt="Siguiente" className="w-[14px] h-auto" style={{ transform: "rotate(180deg)" }} />
         </button>
       </div>
