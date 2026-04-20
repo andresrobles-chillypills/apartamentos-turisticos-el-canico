@@ -65,7 +65,7 @@ export default function Home() {
       </section>
 
       {/* Bars Section */}
-      <section className="relative z-10 overflow-hidden -mt-[50px] -mb-[50px] sm:-mt-[70px] sm:-mb-[70px] lg:-mt-[100px] lg:-mb-[100px]">
+      <section className="relative z-20 -mt-[50px] -mb-[50px] sm:-mt-[70px] sm:-mb-[70px] lg:-mt-[100px] lg:-mb-[100px]" style={{ overflowX: "clip" }}>
         {/* Bar: LA FUENTE - blue */}
         <div className="relative z-30 whitespace-nowrap flex items-center gap-6 lg:gap-12 px-4 lg:px-8 h-[48px] sm:h-[62px] lg:h-[79px]" style={{ backgroundColor: "#99B0C6", transform: "rotate(2.82deg)", marginLeft: "-2%", marginRight: "-2%" }}>
           {Array.from({ length: 12 }).map((_, i) => (
@@ -108,7 +108,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="bg-brown pt-28 pb-[2em] sm:pt-40 sm:pb-[2em] lg:pt-80 lg:pb-[2em]">
+      <section className="relative z-10 bg-brown pt-28 pb-[2em] sm:pt-40 sm:pb-[2em] lg:pt-80 lg:pb-[2em]">
         <div className="max-w-[1920px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
           {/* Title */}
           <h2 className="font-balotro text-[26px] sm:text-[32.75px] leading-[30px] sm:leading-[36px] text-cream uppercase">

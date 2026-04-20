@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative z-20 bg-brown text-cream overflow-hidden rounded-t-[60px] sm:rounded-t-[80px] lg:rounded-t-none" style={{ marginTop: "50px" }}>
+    <footer className="relative z-20 bg-brown text-cream rounded-t-[60px] sm:rounded-t-[80px] lg:rounded-t-none" style={{ marginTop: "50px" }}>
       {/* SVG arc curve at top — solo visible en escritorio */}
       <svg
         className="absolute hidden lg:block"

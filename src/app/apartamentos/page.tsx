@@ -155,7 +155,7 @@ export default function ApartamentosPage() {
             </div>
             <p className="font-grillmaster text-[15px] lg:text-[16.91px] text-brown mb-4 mt-8">Equipamiento incluido:</p>
             <div className="flex flex-wrap gap-2">
-              {["WiFi", "Termo eléctrico independiente", "Ropa para camas", "Menaje de cocina", "Toallas para baño", "Zona de almacenaje en armario de pasillo", "Parque cuna", "2 sillas supletorias en armario pasillo"].map((item, i) => (
+              {["WiFi", "Termo eléctrico independiente", "Ropa para camas", "Menaje de cocina", "Toallas para baño", "Zona de almacenaje en armario de pasillo", "Parque cuna", "2 sillas supletorias en armario de pasillo"].map((item, i) => (
                 <span key={item} className="font-grillmaster text-[13px] lg:text-[16.91px] text-cream px-3 py-1" style={{ backgroundColor: "#C25630", borderRadius: i % 2 === 0 ? "0px" : "9999px" }}>
                   {item}
                 </span>
@@ -206,12 +206,12 @@ export default function ApartamentosPage() {
                 <strong>Salón Cocina:</strong> Mesa para 4 comensales, barra con 2 taburetes, sofá, sillón, TV, aire acondicionado, ventilador de techo, cocina con vitrocerámica, microondas, horno, lavadora, frigorífico, tostador, cafetera de cápsulas y fregadero.
               </p>
               <p className="font-grillmaster text-[15px] lg:text-[16.91px] text-brown mb-8">
-                <strong>Baño Completo:</strong> plato de ducha, mueble de lavabo, bidé y WC.
+                <strong>Baño:</strong> Completo: plato de ducha, mueble de lavabo, bidé y WC.
               </p>
             </div>
             <p className="font-grillmaster text-[15px] lg:text-[16.91px] text-brown mb-4 mt-8">Equipamiento incluido:</p>
             <div className="flex flex-wrap gap-2">
-              {["WiFi", "Termo eléctrico independiente", "Ropa para camas", "Menaje de cocina", "Toallas para baño", "Zona de almacenaje en armario de pasillo", "Posibilidad parque cuna", "2 sillas supletorias en armario pasillo"].map((item, i) => (
+              {["WiFi", "Termo eléctrico independiente", "Ropa para camas", "Menaje de cocina", "Toallas para baño", "Zona de almacenaje en armario de pasillo", "Posibilidad parque cuna", "2 sillas supletorias en pasillo"].map((item, i) => (
                 <span key={item} className="font-grillmaster text-[13px] lg:text-[16.91px] text-cream px-3 py-1" style={{ backgroundColor: "#7A7A56", borderRadius: i % 2 === 0 ? "0px" : "9999px" }}>
                   {item}
                 </span>
@@ -264,7 +264,7 @@ export default function ApartamentosPage() {
             </div>
             <p className="font-grillmaster text-[15px] lg:text-[16.91px] text-brown mb-4 mt-8">Equipamiento incluido:</p>
             <div className="flex flex-wrap gap-2">
-              {["WiFi", "Termo eléctrico independiente", "Ropa para camas", "Menaje de cocina", "Toallas para baño", "Silla supletoria en armario", "En terraza: zona de estar con mesa y dos sillones"].map((item, i) => (
+              {["WiFi", "Termo eléctrico independiente", "Ropa para camas", "Menaje de cocina", "Toallas para baño", "En terraza: zona de estar con mesa y dos sillones", "Silla supletoria en armario"].map((item, i) => (
                 <span key={item} className="font-grillmaster text-[13px] lg:text-[16.91px] text-cream px-3 py-1" style={{ backgroundColor: "#D38734", borderRadius: i % 2 === 0 ? "0px" : "9999px" }}>
                   {item}
                 </span>
