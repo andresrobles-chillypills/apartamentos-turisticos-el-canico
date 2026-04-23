@@ -55,25 +55,122 @@ function StackedCards({ img1, img2 }: { img1?: string; img2?: string }) {
 export default function MoratallaPage() {
   const iconRef = useRef<HTMLImageElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef(0);
+  const lockedRef = useRef(false);
 
   useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const section = sectionRef.current;
+    const track = trackRef.current;
+    if (!wrapper || !section || !track) return;
+
+    let settling = false;
+
+    const getMaxTranslate = () => (CARD_COUNT - 1) * window.innerWidth * 0.8;
+
+    const applyProgress = (p: number) => {
+      progressRef.current = Math.max(0, Math.min(1, p));
+      track.style.transform = `translateX(-${progressRef.current * getMaxTranslate()}px)`;
+    };
+
+    const lock = () => {
+      if (lockedRef.current) return;
+      lockedRef.current = true;
+      settling = true;
+      window.scrollTo({ top: wrapper.offsetTop });
+      section.style.position = "fixed";
+      section.style.top = "0";
+      section.style.left = "0";
+      section.style.width = "100vw";
+      section.style.height = "100vh";
+      section.style.zIndex = "50";
+      requestAnimationFrame(() => { settling = false; });
+    };
+
+    const unlock = (toEnd: boolean) => {
+      if (!lockedRef.current) return;
+      lockedRef.current = false;
+      settling = true;
+      section.style.position = "";
+      section.style.top = "";
+      section.style.left = "";
+      section.style.width = "";
+      section.style.height = "";
+      section.style.zIndex = "";
+      const target = toEnd
+        ? wrapper.offsetTop + wrapper.offsetHeight - window.innerHeight + 1
+        : wrapper.offsetTop - 1;
+      window.scrollTo({ top: target });
+      requestAnimationFrame(() => { settling = false; });
+    };
+
     const onScroll = () => {
       if (iconRef.current) {
         iconRef.current.style.transform = `translateY(-50%) rotate(${window.scrollY * 0.08}deg)`;
       }
-
-      if (!wrapperRef.current || !trackRef.current) return;
-      const wrapper = wrapperRef.current;
+      if (lockedRef.current || settling) return;
       const rect = wrapper.getBoundingClientRect();
-      const scrollableHeight = wrapper.offsetHeight - window.innerHeight;
-      const progress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-      const maxTranslate = (CARD_COUNT - 1) * (window.innerWidth * 0.8);
-      trackRef.current.style.transform = `translateX(-${progress * maxTranslate}px)`;
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        lock();
+      }
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (!lockedRef.current) return;
+      e.preventDefault();
+
+      // ~0.0015 sensitivity: full progress needs ~667 deltaY units (~6-7 wheel ticks)
+      const sensitivity = 0.0015;
+      const newProgress = progressRef.current + e.deltaY * sensitivity;
+
+      if (newProgress < 0) {
+        applyProgress(0);
+        unlock(false);
+        return;
+      }
+      if (newProgress > 1) {
+        applyProgress(1);
+        unlock(true);
+        return;
+      }
+      applyProgress(newProgress);
+    };
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!lockedRef.current) return;
+      if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
+        e.preventDefault();
+        const newProgress = progressRef.current + 0.2;
+        if (newProgress > 1) { applyProgress(1); unlock(true); return; }
+        applyProgress(newProgress);
+      }
+      if (e.key === "ArrowUp" || e.key === "PageUp") {
+        e.preventDefault();
+        const newProgress = progressRef.current - 0.2;
+        if (newProgress < 0) { applyProgress(0); unlock(false); return; }
+        applyProgress(newProgress);
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("keydown", onKeyDown);
+      if (section) {
+        section.style.position = "";
+        section.style.top = "";
+        section.style.left = "";
+        section.style.width = "";
+        section.style.height = "";
+        section.style.zIndex = "";
+      }
+    };
   }, []);
 
   return (
@@ -187,7 +284,7 @@ export default function MoratallaPage() {
       </section>
       {/* Brown section - La Ruta del Agua - horizontal scroll */}
       <div ref={wrapperRef} style={{ height: `${CARD_COUNT * 100}vh` }}>
-      <section className="bg-brown sticky top-0 overflow-hidden" style={{ height: "100vh" }}>
+      <section ref={sectionRef} className="bg-brown overflow-hidden" style={{ height: "100vh" }}>
         <div ref={trackRef} className="flex h-full" style={{ width: `${CARD_COUNT * 80}vw`, willChange: "transform" }}>
 
           {/* Card 1 */}
