@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className="antialiased overflow-x-hidden">
+      <body className="antialiased" style={{ overflowX: "clip" }}>
         <SmoothScroll />
         <Header />
         <main>{children}</main>
