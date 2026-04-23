@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
 import LocationSection from "@/components/LocationSection";
 
 const CARD_COUNT = 5;
@@ -10,9 +9,10 @@ function StackedCards({ img1, img2 }: { img1?: string; img2?: string }) {
   const frontRef = useRef<HTMLDivElement & HTMLImageElement>(null);
   const animating = useRef(false);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = async () => {
     if (animating.current || !backRef.current || !frontRef.current) return;
     animating.current = true;
+    const gsap = (await import("gsap")).default;
     const tl = gsap.timeline({ onComplete: () => { animating.current = false; } });
     tl.to(backRef.current, { x: 120, duration: 0.25, ease: "power2.in" }, 0)
       .to(frontRef.current, { x: -20, duration: 0.25, ease: "power2.in" }, 0)
@@ -21,9 +21,10 @@ function StackedCards({ img1, img2 }: { img1?: string; img2?: string }) {
       .to(frontRef.current, { x: 0, duration: 0.3, ease: "power2.out" }, "<");
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = async () => {
     if (animating.current || !backRef.current || !frontRef.current) return;
     animating.current = true;
+    const gsap = (await import("gsap")).default;
     const tl = gsap.timeline({ onComplete: () => { animating.current = false; } });
     tl.to(backRef.current, { x: 120, duration: 0.25, ease: "power2.in" }, 0)
       .to(frontRef.current, { x: -20, duration: 0.25, ease: "power2.in" }, 0)
