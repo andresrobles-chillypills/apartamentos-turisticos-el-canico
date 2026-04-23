@@ -100,7 +100,7 @@ export default function Footer() {
           <img src="/icons/Group-49.svg" alt="El Cañico" className="h-[60px] sm:h-[80px] w-auto self-start" />
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
             <p className="font-grillmaster uppercase text-[14px] sm:text-[16.91px]">
-              Apartamentos El Ca<span className="font-sans">ñ</span>ico 2026©
+              Casas El Ca<span className="font-sans">ñ</span>ico 2026©
             </p>
             <a href="https://chillypills.com/" target="_blank" rel="noopener noreferrer" className="font-grillmaster uppercase text-[14px] sm:text-[16.91px] text-cream/60 hover:text-cream transition-colors">
               Diseño Web Chillypills

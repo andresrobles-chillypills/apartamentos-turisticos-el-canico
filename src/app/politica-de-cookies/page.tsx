@@ -17,7 +17,7 @@ export default function PoliticaCookiesPage() {
 
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">2. ¿Qué cookies utiliza este sitio web?</h2>
-            <p>El sitio web de Apartamentos Turísticos El Cañico utiliza únicamente cookies técnicas o necesarias y cookies de terceros derivadas del uso del mapa de Google Maps integrado en la página de contacto. No utilizamos cookies de análisis, cookies de marketing ni cookies publicitarias propias.</p>
+            <p>El sitio web de Casas El Cañico utiliza únicamente cookies técnicas o necesarias y cookies de terceros derivadas del uso del mapa de Google Maps integrado en la página de contacto. No utilizamos cookies de análisis, cookies de marketing ni cookies publicitarias propias.</p>
           </div>
 
           <div>
@@ -99,11 +99,11 @@ export default function PoliticaCookiesPage() {
 
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">6. Actualizaciones de esta política</h2>
-            <p>Apartamentos Turísticos El Cañico podrá modificar la presente Política de Cookies en función de nuevas exigencias legislativas o con la finalidad de adaptarla a las instrucciones dictadas por la Agencia Española de Protección de Datos (AEPD). Se recomienda al usuario revisar esta política de forma periódica.</p>
+            <p>Casas El Cañico podrá modificar la presente Política de Cookies en función de nuevas exigencias legislativas o con la finalidad de adaptarla a las instrucciones dictadas por la Agencia Española de Protección de Datos (AEPD). Se recomienda al usuario revisar esta política de forma periódica.</p>
           </div>
 
           <div className="border-t border-brown/30 pt-8">
-            <p><span className="font-bold">Responsable:</span> Apartamentos Turísticos El Cañico</p>
+            <p><span className="font-bold">Responsable:</span> Casas El Cañico</p>
             <p><span className="font-bold">NIF:</span> </p>
             <p><span className="font-bold">Dirección:</span> </p>
             <p><span className="font-bold">Email:</span> </p>

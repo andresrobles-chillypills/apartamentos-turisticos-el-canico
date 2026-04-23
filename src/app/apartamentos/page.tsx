@@ -63,7 +63,7 @@ export default function ApartamentosPage() {
       <section className="bg-cream pt-10 sm:pt-16 lg:pt-24 pb-0">
         <div className="flex flex-col items-center text-center px-6 lg:px-12">
           <p className="font-balotro text-[12.91px] text-brown uppercase tracking-wider mb-4">
-            Apartamentos turísticos en Moratalla
+            Casas El Cañico en Moratalla
           </p>
           <h1 className="font-averia font-bold text-[28px] sm:text-[38px] lg:text-[49.22px] leading-[32px] sm:leading-[42px] lg:leading-[50px] text-brown uppercase mb-6 max-w-[950px]">
             Cuatro espacios únicos en el casco antiguo, junto al Castillo.

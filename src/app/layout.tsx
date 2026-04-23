@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Apartamentos Turísticos El Cañico | Moratalla",
+  title: "Casas El Cañico | Moratalla",
   description:
-    "Apartamentos turísticos en el casco antiguo de Moratalla, junto al Castillo. Alojamiento rural con encanto en la Región de Murcia.",
+    "Casas El Cañico en el casco antiguo de Moratalla, junto al Castillo. Alojamiento rural con encanto en la Región de Murcia.",
   icons: {
     icon: "/icons/Favicon.svg",
   },

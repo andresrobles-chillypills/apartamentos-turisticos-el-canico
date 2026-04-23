@@ -9,7 +9,7 @@ export default function ContactoPage() {
         {/* Left column */}
         <div className="w-full lg:w-[60%] flex flex-col">
           <p className="font-balotro text-[12.91px] text-brown uppercase tracking-wider mb-4">
-            Apartamentos Turísticos El Cañico
+            Casas El Cañico
           </p>
           <h1 className="font-averia font-bold text-[49.22px] leading-[50px] text-brown uppercase mb-12 max-w-[700px]">
             Estamos en el casco antiguo de Moratalla, junto al castillo.

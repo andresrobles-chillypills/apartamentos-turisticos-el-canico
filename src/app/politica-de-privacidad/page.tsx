@@ -11,14 +11,14 @@ export default function PoliticaPrivacidadPage() {
 
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">1. Información al usuario</h2>
-            <p>Apartamentos Turísticos El Cañico, en adelante "el Responsable", informa a los usuarios del sitio web sobre su política respecto al tratamiento y protección de los datos personales de los usuarios que puedan ser recabados por la navegación, contacto o reserva de servicios a través de este sitio web.</p>
+            <p>Casas El Cañico, en adelante "el Responsable", informa a los usuarios del sitio web sobre su política respecto al tratamiento y protección de los datos personales de los usuarios que puedan ser recabados por la navegación, contacto o reserva de servicios a través de este sitio web.</p>
             <p className="mt-3">El Responsable garantiza el cumplimiento de la normativa vigente en materia de protección de datos personales y la confidencialidad de los mismos.</p>
           </div>
 
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">2. Identidad del responsable del tratamiento</h2>
             <ul className="flex flex-col gap-2">
-              <li><span className="font-bold">Titular:</span> Apartamentos Turísticos El Cañico</li>
+              <li><span className="font-bold">Titular:</span> Casas El Cañico</li>
               <li><span className="font-bold">NIF/CIF:</span> </li>
               <li><span className="font-bold">Domicilio:</span> </li>
               <li><span className="font-bold">Correo electrónico:</span> </li>
@@ -55,7 +55,7 @@ export default function PoliticaPrivacidadPage() {
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">6. Comunicación de datos a terceros</h2>
             <p>Los datos no se comunicarán a terceros, salvo obligación legal o cuando sea necesario para la prestación del servicio (por ejemplo, a plataformas de gestión de reservas o entidades financieras para el cobro de servicios).</p>
-            <p className="mt-3">En todo caso, Apartamentos Turísticos El Cañico garantiza que dichos terceros cumplirán con la normativa vigente en materia de protección de datos.</p>
+            <p className="mt-3">En todo caso, Casas El Cañico garantiza que dichos terceros cumplirán con la normativa vigente en materia de protección de datos.</p>
           </div>
 
           <div>
@@ -79,17 +79,17 @@ export default function PoliticaPrivacidadPage() {
 
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">8. Seguridad de los datos</h2>
-            <p>Apartamentos Turísticos El Cañico adopta las medidas técnicas y organizativas necesarias para garantizar la seguridad, integridad y confidencialidad de los datos personales, evitando su pérdida, alteración o acceso no autorizado.</p>
+            <p>Casas El Cañico adopta las medidas técnicas y organizativas necesarias para garantizar la seguridad, integridad y confidencialidad de los datos personales, evitando su pérdida, alteración o acceso no autorizado.</p>
           </div>
 
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">9. Aceptación y consentimiento</h2>
-            <p>El usuario declara haber sido informado de las condiciones sobre protección de datos personales, aceptando y consintiendo el tratamiento de los mismos por parte de Apartamentos Turísticos El Cañico, en la forma y para las finalidades indicadas en la presente Política de Privacidad.</p>
+            <p>El usuario declara haber sido informado de las condiciones sobre protección de datos personales, aceptando y consintiendo el tratamiento de los mismos por parte de Casas El Cañico, en la forma y para las finalidades indicadas en la presente Política de Privacidad.</p>
           </div>
 
           <div>
             <h2 className="font-averia font-bold text-[24px] text-brown uppercase mb-4">10. Cambios en la política de privacidad</h2>
-            <p>Apartamentos Turísticos El Cañico se reserva el derecho a modificar la presente Política de Privacidad para adaptarla a novedades legislativas o jurisprudenciales. En caso de modificación, se publicará en esta misma página con fecha de actualización.</p>
+            <p>Casas El Cañico se reserva el derecho a modificar la presente Política de Privacidad para adaptarla a novedades legislativas o jurisprudenciales. En caso de modificación, se publicará en esta misma página con fecha de actualización.</p>
           </div>
 
         </div>

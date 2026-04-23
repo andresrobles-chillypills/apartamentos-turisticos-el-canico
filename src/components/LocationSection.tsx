@@ -44,7 +44,7 @@ export default function LocationSection() {
           </p>
           <div className="flex items-center gap-6 lg:gap-12">
             <p className="font-grillmaster text-[15px] lg:text-[16.91px] text-brown max-w-[400px]">
-              Nuestros apartamentos turísticos se encuentran en la zona de El Cañico, dentro del casco antiguo. Desde aquí podrás:
+              Nuestras casas se encuentran en la zona de El Cañico, dentro del casco antiguo. Desde aquí podrás:
             </p>
             <img
               ref={iconRef}

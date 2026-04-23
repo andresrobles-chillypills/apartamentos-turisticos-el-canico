@@ -22,7 +22,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
               <img
                 src="/logo.svg"
-                alt="Apartamentos Turísticos El Cañico"
+                alt="Casas El Cañico"
                 className="w-[260px] sm:w-[340px] lg:w-[500px] h-auto"
               />
               {/* Fotos visibles solo en móvil/tablet, bajo el logo */}
@@ -57,7 +57,7 @@ export default function Home() {
             <div className="hidden lg:flex flex-col items-center">
               <img src="/images/ChatGPT-Image-27-feb-2026-13_59_31-1.jpg" alt="" className="w-full max-w-[246px] aspect-[246/344] object-cover" />
               <p className="font-balotro text-[12.91px] text-brown uppercase text-center max-w-[246px] mt-[1em]">
-                Apartamentos Turísticos en Moratalla – El Cañico, junto al Castillo
+                Casas El Cañico en Moratalla – junto al Castillo
               </p>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function Home() {
 
           {/* Text */}
           <p className="font-grillmaster text-[15px] sm:text-[16.91px] text-cream leading-relaxed max-w-[600px] mt-[2em] sm:mt-[3em]">
-            Apartamentos Turísticos El Cañico nace como un homenaje a uno de los barrios con más identidad de Moratalla. Situados en el casco antiguo, muy cerca del Castillo, nuestros apartamentos combinan tradición, comodidad y ubicación privilegiada.
+            Casas El Cañico nace como un homenaje a uno de los barrios con más identidad de Moratalla. Situadas en el casco antiguo, muy cerca del Castillo, nuestras casas combinan tradición, comodidad y ubicación privilegiada.
           </p>
           <p className="font-grillmaster text-[15px] sm:text-[16.91px] text-cream leading-relaxed max-w-[600px] mt-6">
             El nombre &ldquo;El Cañico&rdquo; hace referencia a la histórica fuente que abasteció durante siglos al pueblo, símbolo de vida y desarrollo. Hoy, ese mismo entorno es el escenario perfecto para tu escapada rural.
