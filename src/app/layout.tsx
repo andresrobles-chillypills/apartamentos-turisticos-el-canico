@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Apartamentos Turísticos El Cañico | Moratalla",
@@ -20,8 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className="antialiased" style={{ overflowX: "clip" }}>
-        <SmoothScroll />
+      <body className="antialiased overflow-x-hidden">
         <Header />
         <main>{children}</main>
         <Footer />

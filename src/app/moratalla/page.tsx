@@ -1,18 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
-import LocationSection from "@/components/LocationSection";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const CARD_COUNT = 5;
+gsap.registerPlugin(ScrollTrigger);
 
 function StackedCards({ img1, img2 }: { img1?: string; img2?: string }) {
   const backRef = useRef<HTMLDivElement & HTMLImageElement>(null);
   const frontRef = useRef<HTMLDivElement & HTMLImageElement>(null);
   const animating = useRef(false);
 
-  const handleMouseEnter = async () => {
+  const handleMouseEnter = () => {
     if (animating.current || !backRef.current || !frontRef.current) return;
     animating.current = true;
-    const gsap = (await import("gsap")).default;
     const tl = gsap.timeline({ onComplete: () => { animating.current = false; } });
     tl.to(backRef.current, { x: 120, duration: 0.25, ease: "power2.in" }, 0)
       .to(frontRef.current, { x: -20, duration: 0.25, ease: "power2.in" }, 0)
@@ -21,10 +21,9 @@ function StackedCards({ img1, img2 }: { img1?: string; img2?: string }) {
       .to(frontRef.current, { x: 0, duration: 0.3, ease: "power2.out" }, "<");
   };
 
-  const handleMouseLeave = async () => {
+  const handleMouseLeave = () => {
     if (animating.current || !backRef.current || !frontRef.current) return;
     animating.current = true;
-    const gsap = (await import("gsap")).default;
     const tl = gsap.timeline({ onComplete: () => { animating.current = false; } });
     tl.to(backRef.current, { x: 120, duration: 0.25, ease: "power2.in" }, 0)
       .to(frontRef.current, { x: -20, duration: 0.25, ease: "power2.in" }, 0)
@@ -44,132 +43,114 @@ function StackedCards({ img1, img2 }: { img1?: string; img2?: string }) {
         <div ref={frontRef} className="bg-cream/20" style={frontStyle} />
       )}
       {img2 ? (
-        <img ref={backRef} src={img2} alt="" className="object-cover" style={backStyle}  />
+        <img ref={backRef} src={img2} alt="" className="object-cover" style={backStyle} />
       ) : (
-        <div ref={backRef} className="bg-cream/30" style={backStyle}  />
+        <div ref={backRef} className="bg-cream/30" style={backStyle} />
       )}
     </div>
   );
 }
 
+const CARD_COUNT = 5;
+
+const cards = [
+  {
+    subtitle: "La Ruta del Agua",
+    title: "Naturaleza e ingeniería del Siglo XVI",
+    body: "La Ruta del Agua de Moratalla es un recorrido de aproximadamente 9.9 km que sigue el camino tradicional del agua desde la montaña hasta el casco urbano.",
+    listTitle: "Esta ruta permite descubrir:",
+    list: [
+      "El Acueducto de la Umbría (Siglo XVI)",
+      "Paraje de Las Arcas",
+      "Patio de los Yébenes",
+      "Fuente del Cañico",
+      "Zona ZEPA Sierra de Moratalla",
+    ],
+    img1: "/images/Rectangle 40.jpg",
+    img2: "/images/Rectangle 41.jpg",
+  },
+  {
+    subtitle: "Naturaleza y Senderismo",
+    title: "Un paraíso para los amantes de la montaña",
+    body: "Moratalla forma parte de la Sierra del Buitre y cuenta con espacios naturales protegidos.",
+    listTitle: "Esta ruta permite descubrir:",
+    list: [
+      "Senderos señalizados",
+      "Zona de Especial Protección para las Aves (ZEPA)",
+      "Pico del Fraile",
+      "Paisajes de montaña",
+      "Río Alhárabe",
+    ],
+    img1: "/images/Rectangle 43.jpg",
+    img2: "/images/Rectangle 42.jpg",
+  },
+  {
+    subtitle: "Arte Rupestre",
+    title: "Patrimonio Mundial",
+    body: "Moratalla alberga importantes muestras de arte rupestre levantino, declarado Patrimonio Mundial por la UNESCO. Una oportunidad única para conectar con los orígenes más antiguos de la Península Ibérica.",
+    img1: "/images/Rectangle 45.jpg",
+    img2: "/images/Rectangle 44.jpg",
+  },
+  {
+    subtitle: "Tradición y Cultura",
+    title: "Moratalla es tradición viva",
+    list: [
+      "Fiestas y encierros tradicionales",
+      "Semana Santa",
+      "Gastronomía local",
+      "Arquitectura popular",
+    ],
+    img1: "/images/Rectangle 47.jpg",
+    img2: "/images/Rectangle 46.jpg",
+  },
+  {
+    subtitle: "Gastronomía Local",
+    title: "Sabores de montaña",
+    listTitle: "Durante tu estancia podrás disfrutar de:",
+    list: [
+      "Platos tradicionales murcianos",
+      "Productos locales",
+      "Cocina casera",
+      "Restaurantes con encanto",
+    ],
+    img1: "/images/Rectangle 49.jpg",
+    img2: "/images/Rectangle 42.jpg",
+  },
+];
+
 export default function MoratallaPage() {
   const iconRef = useRef<HTMLImageElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef(0);
-  const lockedRef = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const section = sectionRef.current;
-    const track = trackRef.current;
-    if (!wrapper || !section || !track) return;
-
-    let settling = false;
-
-    const getMaxTranslate = () => (CARD_COUNT - 1) * window.innerWidth * 0.8;
-
-    const applyProgress = (p: number) => {
-      progressRef.current = Math.max(0, Math.min(1, p));
-      track.style.transform = `translateX(-${progressRef.current * getMaxTranslate()}px)`;
-    };
-
-    const lock = () => {
-      if (lockedRef.current) return;
-      lockedRef.current = true;
-      settling = true;
-      window.scrollTo({ top: wrapper.offsetTop });
-      section.style.position = "fixed";
-      section.style.top = "0";
-      section.style.left = "0";
-      section.style.width = "100vw";
-      section.style.height = "100vh";
-      section.style.zIndex = "50";
-      requestAnimationFrame(() => { settling = false; });
-    };
-
-    const unlock = (toEnd: boolean) => {
-      if (!lockedRef.current) return;
-      lockedRef.current = false;
-      settling = true;
-      section.style.position = "";
-      section.style.top = "";
-      section.style.left = "";
-      section.style.width = "";
-      section.style.height = "";
-      section.style.zIndex = "";
-      const target = toEnd
-        ? wrapper.offsetTop + wrapper.offsetHeight - window.innerHeight + 1
-        : wrapper.offsetTop - 1;
-      window.scrollTo({ top: target });
-      requestAnimationFrame(() => { settling = false; });
-    };
-
     const onScroll = () => {
       if (iconRef.current) {
         iconRef.current.style.transform = `translateY(-50%) rotate(${window.scrollY * 0.08}deg)`;
       }
-      if (lockedRef.current || settling) return;
-      const rect = wrapper.getBoundingClientRect();
-      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-        lock();
-      }
     };
-
-    const onWheel = (e: WheelEvent) => {
-      if (!lockedRef.current) return;
-      e.preventDefault();
-
-      // ~0.0015 sensitivity: full progress needs ~667 deltaY units (~6-7 wheel ticks)
-      const sensitivity = 0.0015;
-      const newProgress = progressRef.current + e.deltaY * sensitivity;
-
-      if (newProgress < 0) {
-        applyProgress(0);
-        unlock(false);
-        return;
-      }
-      if (newProgress > 1) {
-        applyProgress(1);
-        unlock(true);
-        return;
-      }
-      applyProgress(newProgress);
-    };
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (!lockedRef.current) return;
-      if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
-        e.preventDefault();
-        const newProgress = progressRef.current + 0.2;
-        if (newProgress > 1) { applyProgress(1); unlock(true); return; }
-        applyProgress(newProgress);
-      }
-      if (e.key === "ArrowUp" || e.key === "PageUp") {
-        e.preventDefault();
-        const newProgress = progressRef.current - 0.2;
-        if (newProgress < 0) { applyProgress(0); unlock(false); return; }
-        applyProgress(newProgress);
-      }
-    };
-
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!trackRef.current || !sectionRef.current) return;
+
+    const tween = gsap.to(trackRef.current, {
+      x: () => -(trackRef.current!.scrollWidth - window.innerWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        pin: true,
+        scrub: 1,
+        end: () => `+=${trackRef.current!.scrollWidth - window.innerWidth}`,
+        invalidateOnRefresh: true,
+      },
+    });
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("keydown", onKeyDown);
-      if (section) {
-        section.style.position = "";
-        section.style.top = "";
-        section.style.left = "";
-        section.style.width = "";
-        section.style.height = "";
-        section.style.zIndex = "";
-      }
+      tween.scrollTrigger?.kill();
+      tween.kill();
     };
   }, []);
 
@@ -196,12 +177,9 @@ export default function MoratallaPage() {
 
       {/* About section */}
       <section className="flex flex-col items-center justify-center text-center px-6 lg:px-12 pt-24 pb-32" style={{ backgroundColor: "#C25630", minHeight: "130vh" }}>
-        {/* Title */}
         <h2 className="font-balotro text-[32.75px] text-cream uppercase leading-tight mb-8 max-w-[450px]">
           Un pueblo con siglos de historia
         </h2>
-
-        {/* Image + rotating badge */}
         <div className="relative mb-8" style={{ width: "385px", height: "385px" }}>
           <img src="/images/Rectangle 50.jpg" alt="" className="w-full h-full object-cover rounded-[50px]" />
           <img
@@ -212,8 +190,6 @@ export default function MoratallaPage() {
             style={{ width: "145px", height: "auto", willChange: "transform", transform: "translateY(-50%)", top: "50%", left: "calc(100% + 48px)", position: "absolute" }}
           />
         </div>
-
-        {/* Text */}
         <div className="max-w-[620px] mb-16 space-y-6">
           <p className="font-grillmaster text-[16.91px] text-cream">
             Moratalla es uno de los municipios más extensos de España y uno de los destinos rurales más auténticos de la Región de Murcia.
@@ -225,8 +201,6 @@ export default function MoratallaPage() {
             Durante siglos, el agua ha sido uno de los elementos fundamentales en el desarrollo del municipio, especialmente a través del histórico Acueducto de la Umbría y la Fuente del Cañico, símbolos del crecimiento urbano y sanitario de la villa.
           </p>
         </div>
-
-        {/* Button */}
         <a href="#" className="inline-flex items-center group">
           <span className="bg-cream group-hover:bg-[#EADDC7] transition-colors px-6 py-3 font-grillmaster text-[16.91px] text-brown uppercase">
             Conoce más
@@ -236,10 +210,10 @@ export default function MoratallaPage() {
           </span>
         </a>
       </section>
-      {/* Location Section - Moratalla */}
+
+      {/* Castillo section */}
       <section className="bg-cream px-6 lg:px-12 pt-28 lg:pt-48 pb-20 lg:pb-40">
         <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row gap-12">
-          {/* Left column */}
           <div className="w-full lg:w-1/2">
             <p className="font-balotro text-[12.91px] text-brown uppercase tracking-wider mb-4">
               El Castillo de Moratalla
@@ -251,8 +225,6 @@ export default function MoratallaPage() {
               El Castillo-Fortaleza de Moratalla es uno de los principales atractivos turísticos del pueblo.<br />Construido en época medieval, ofrece:
             </p>
           </div>
-
-          {/* Right column */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
             <ul className="w-full">
               {[
@@ -269,8 +241,6 @@ export default function MoratallaPage() {
             </ul>
           </div>
         </div>
-
-        {/* Photos */}
         <div className="max-w-[1920px] mx-auto mt-32 grid grid-cols-2 lg:grid-cols-4 gap-4 items-end">
           {[
             "/images/Rectangle 32.jpg",
@@ -282,180 +252,47 @@ export default function MoratallaPage() {
           ))}
         </div>
       </section>
+
       {/* Brown section - La Ruta del Agua - horizontal scroll */}
-      <div ref={wrapperRef} style={{ height: `${CARD_COUNT * 100}vh` }}>
       <section ref={sectionRef} className="bg-brown overflow-hidden" style={{ height: "100vh" }}>
-        <div ref={trackRef} className="flex h-full" style={{ width: `${CARD_COUNT * 80}vw`, willChange: "transform" }}>
+        <div
+          ref={trackRef}
+          className="flex h-full"
+          style={{ width: `${CARD_COUNT * 100}vw` }}
+        >
+          {cards.map((card, idx) => (
+            <div
+              key={idx}
+              className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center"
+              style={{ width: "100vw", height: "100vh" }}
+            >
+              <StackedCards img1={card.img1} img2={card.img2} />
 
-          {/* Card 1 */}
-          <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
-            {/* Left: stacked photos */}
-            <StackedCards img1="/images/Rectangle 40.jpg" img2="/images/Rectangle 41.jpg" />
+              <div className="flex-1 max-w-[440px]">
+                <p className="font-balotro text-[12.91px] text-cream uppercase tracking-wider mb-4">{card.subtitle}</p>
+                <h2 className="font-averia font-bold text-[49.22px] text-cream uppercase mb-6" style={{ lineHeight: "50px" }}>{card.title}</h2>
+                {card.body && <p className="font-grillmaster text-[16.91px] text-cream">{card.body}</p>}
+              </div>
 
-            {/* Center: text */}
-            <div className="flex-1 max-w-[440px]">
-              <p className="font-balotro text-[12.91px] text-cream uppercase tracking-wider mb-4">
-                La Ruta del Agua
-              </p>
-              <h2 className="font-averia font-bold text-[49.22px] text-cream uppercase mb-6" style={{ lineHeight: "50px" }}>
-                Naturaleza e ingeniería del Siglo XVI
-              </h2>
-              <p className="font-grillmaster text-[16.91px] text-cream">
-                La Ruta del Agua de Moratalla es un recorrido de aproximadamente 9.9 km que sigue el camino tradicional del agua desde la monta<span className="font-sans">ñ</span>a hasta el casco urbano.
-              </p>
+              {(card.list || card.listTitle) && (
+                <div className="flex-1 max-w-[380px]">
+                  {card.listTitle && <p className="font-grillmaster text-[16.91px] text-cream mb-6">{card.listTitle}</p>}
+                  {card.list && (
+                    <ul className="w-full">
+                      {card.list.map((item, i) => (
+                        <li key={i} className="flex items-center gap-4 py-3 border-b border-cream">
+                          <span className="w-[14px] h-[14px] rounded-full flex-shrink-0" style={{ backgroundColor: "#D38734" }} />
+                          <span className="font-grillmaster text-[16.91px] text-cream">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
             </div>
-
-            {/* Right: list */}
-            <div className="flex-1 max-w-[380px]">
-              <p className="font-grillmaster text-[16.91px] text-cream mb-6">Esta ruta permite descubrir:</p>
-              <ul className="w-full">
-                {[
-                  "El Acueducto de la Umbría (Siglo XVI)",
-                  "Paraje de Las Arcas",
-                  "Patio de los Yébenes",
-                  "Fuente del Cañico",
-                  "Zona ZEPA Sierra de Moratalla",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 py-3 border-b border-cream">
-                    <span className="w-[14px] h-[14px] rounded-full flex-shrink-0" style={{ backgroundColor: "#D38734" }} />
-                    <span className="font-grillmaster text-[16.91px] text-cream">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
-            {/* Left: stacked photos */}
-            <StackedCards img1="/images/Rectangle 43.jpg" img2="/images/Rectangle 42.jpg" />
-
-            {/* Center: text */}
-            <div className="flex-1 max-w-[440px]">
-              <p className="font-balotro text-[12.91px] text-cream uppercase tracking-wider mb-4">
-                Naturaleza y Senderismo
-              </p>
-              <h2 className="font-averia font-bold text-[49.22px] text-cream uppercase mb-6" style={{ lineHeight: "50px" }}>
-                Un paraíso para los amantes de la monta<span className="font-sans">ñ</span>a
-              </h2>
-              <p className="font-grillmaster text-[16.91px] text-cream">
-                Moratalla forma parte de la Sierra del Buitre y cuenta con espacios naturales protegidos.
-              </p>
-            </div>
-
-            {/* Right: list */}
-            <div className="flex-1 max-w-[380px]">
-              <p className="font-grillmaster text-[16.91px] text-cream mb-6">Esta ruta permite descubrir:</p>
-              <ul className="w-full">
-                {[
-                  "Senderos se\u00f1alizados",
-                  "Zona de Especial Protecci\u00f3n para las Aves (ZEPA)",
-                  "Pico del Fraile",
-                  "Paisajes de monta\u00f1a",
-                  "R\u00edo Alh\u00e1rabe",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 py-3 border-b border-cream">
-                    <span className="w-[14px] h-[14px] rounded-full flex-shrink-0" style={{ backgroundColor: "#D38734" }} />
-                    <span className="font-grillmaster text-[16.91px] text-cream">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
-            {/* Left: stacked photos */}
-            <StackedCards img1="/images/Rectangle 45.jpg" img2="/images/Rectangle 44.jpg" />
-
-            {/* Center: text */}
-            <div className="flex-1 max-w-[440px]">
-              <p className="font-balotro text-[12.91px] text-cream uppercase tracking-wider mb-4">
-                Arte Rupestre
-              </p>
-              <h2 className="font-averia font-bold text-[49.22px] text-cream uppercase mb-6" style={{ lineHeight: "50px" }}>
-                Patrimonio Mundial
-              </h2>
-            </div>
-
-            {/* Right: description */}
-            <div className="flex-1 max-w-[380px]">
-              <p className="font-grillmaster text-[16.91px] text-cream">
-                Moratalla alberga importantes muestras de arte rupestre levantino, declarado Patrimonio Mundial por la UNESCO. Una oportunidad única para conectar con los orígenes más antiguos de la Pen<span className="font-sans">í</span>nsula Ibérica.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
-            {/* Left: stacked photos */}
-            <StackedCards img1="/images/Rectangle 47.jpg" img2="/images/Rectangle 46.jpg" />
-
-            {/* Center: text */}
-            <div className="flex-1 max-w-[440px]">
-              <p className="font-balotro text-[12.91px] text-cream uppercase tracking-wider mb-4">
-                Tradición y Cultura
-              </p>
-              <h2 className="font-averia font-bold text-[49.22px] text-cream uppercase mb-6" style={{ lineHeight: "50px" }}>
-                Moratalla es tradición viva
-              </h2>
-            </div>
-
-            {/* Right: list */}
-            <div className="flex-1 max-w-[380px]">
-              <ul className="w-full">
-                {[
-                  "Fiestas y encierros tradicionales",
-                  "Semana Santa",
-                  "Gastronom\u00eda local",
-                  "Arquitectura popular",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 py-3 border-b border-cream">
-                    <span className="w-[14px] h-[14px] rounded-full flex-shrink-0" style={{ backgroundColor: "#D38734" }} />
-                    <span className="font-grillmaster text-[16.91px] text-cream">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Card 5 */}
-          <div className="flex-shrink-0 flex items-center gap-16 px-6 lg:px-16 justify-center" style={{ width: "80vw", height: "100vh" }}>
-            {/* Left: stacked photos */}
-            <StackedCards img1="/images/Rectangle 49.jpg" img2="/images/Rectangle 42.jpg" />
-
-            {/* Center: text */}
-            <div className="flex-1 max-w-[440px]">
-              <p className="font-balotro text-[12.91px] text-cream uppercase tracking-wider mb-4">
-                Gastronomía Local
-              </p>
-              <h2 className="font-averia font-bold text-[49.22px] text-cream uppercase mb-6" style={{ lineHeight: "50px" }}>
-                Sabores de monta<span className="font-sans">ñ</span>a
-              </h2>
-            </div>
-
-            {/* Right: list */}
-            <div className="flex-1 max-w-[380px]">
-              <p className="font-grillmaster text-[16.91px] text-cream mb-6">Durante tu estancia podrás disfrutar de:</p>
-              <ul className="w-full">
-                {[
-                  "Platos tradicionales murcianos",
-                  "Productos locales",
-                  "Cocina casera",
-                  "Restaurantes con encanto",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 py-3 border-b border-cream">
-                    <span className="w-[14px] h-[14px] rounded-full flex-shrink-0" style={{ backgroundColor: "#D38734" }} />
-                    <span className="font-grillmaster text-[16.91px] text-cream">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
+          ))}
         </div>
       </section>
-      </div>
 
       {/* Full width photo - parallax */}
       <div className="relative z-10 overflow-hidden" style={{ height: "90vh" }}>

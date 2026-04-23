@@ -8,6 +8,7 @@ export default function SmoothScroll() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Disable Lenis on moratalla page — sticky horizontal scroll requires native scroll
     if (pathname === "/moratalla") return;
 
     const lenis = new Lenis({
