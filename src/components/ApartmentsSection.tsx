@@ -124,7 +124,7 @@ export default function ApartmentsSection() {
 
         {/* Button */}
         <Link
-          href="/apartamentos"
+          href="/casas"
           className="mt-8 inline-flex items-center group"
         >
           <span className="bg-orange group-hover:bg-orange/80 transition-colors px-8 py-3 font-grillmaster text-[16.91px] text-brown uppercase">
@@ -207,7 +207,7 @@ function ApartmentCardContent({ apt, prev, next }: { apt: typeof apartments[0]; 
             <img src="/icons/Group-Team--Streamline-Atlas.svg" alt="" className="w-[24px] h-[24px]" />
             <span className="font-grillmaster text-[16.91px] text-brown uppercase">{apt.pax} PAX</span>
           </div>
-          <Link href="/apartamentos" className="inline-flex items-center group sm:-mt-px">
+          <Link href="/casas" className="inline-flex items-center group sm:-mt-px">
             <span className="bg-brown group-hover:bg-brown/80 transition-colors px-6 py-3 font-grillmaster text-[14px] sm:text-[16.91px] text-cream uppercase">
               Conoce m<span className="font-sans text-[16px] sm:text-[18px]">á</span>s
             </span>

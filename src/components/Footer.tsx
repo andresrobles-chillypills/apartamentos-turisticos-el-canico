@@ -115,7 +115,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { label: "Inicio", href: "/" },
-                { label: "Apartamentos", href: "/apartamentos" },
+                { label: "Casas", href: "/casas" },
                 { label: "Reserva", href: "/#reserva" },
                 { label: "Moratalla", href: "/moratalla" },
               ].map((item) => (

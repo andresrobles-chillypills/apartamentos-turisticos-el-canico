@@ -41,7 +41,7 @@ export default function Home() {
                 </div>
               </div>
               <Link
-                href="/apartamentos"
+                href="/casas"
                 className="mt-8 sm:mt-12 lg:mt-32 inline-flex items-center group"
               >
                 <span className="bg-brown group-hover:bg-brown/80 transition-colors px-8 py-3 font-grillmaster text-[16.91px] text-cream uppercase">

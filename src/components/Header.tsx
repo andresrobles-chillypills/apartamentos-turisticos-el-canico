@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const leftNav = [
   { label: "Inicio", href: "/" },
-  { label: "Apartamentos", href: "/apartamentos" },
+  { label: "Casas", href: "/casas" },
   { label: "Reserva", href: "/#reserva" },
 ];
 
